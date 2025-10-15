@@ -19,6 +19,21 @@
             }
         }
     </script>
+    <style>
+			/* Default: background image for desktop */
+			body {
+				background: url('../../assets/bg.png') no-repeat center center fixed;
+				background-size: cover;
+			}
+
+			/* Mobile view: solid green background */
+			@media (max-width: 768px) {
+				body {
+					background: #0f5e1a !important;
+					background-image: none !important;
+				}
+			}
+	</style>
 </head>
 <body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
     <!-- Navigation -->
@@ -75,10 +90,10 @@
 					<i class="fas fa-comment-dots"></i>
 					<span>Complaints</span>
 				</a>
-				<a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+				<!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
 					<i class="fas fa-file-alt"></i>
 					<span>Blotter</span>
-				</a>
+				</a> -->
 				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
 					<i class="fas fa-star"></i>
 					<span>Feedback</span>

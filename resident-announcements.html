@@ -19,8 +19,23 @@ v<!DOCTYPE html>
             }
         }
     </script>
+    <style>
+			/* Default: background image for desktop */
+			body {
+				background: url('../../assets/bg.png') no-repeat center center fixed;
+				background-size: cover;
+			}
+
+			/* Mobile view: solid green background */
+			@media (max-width: 768px) {
+				body {
+					background: #0f5e1a !important;
+					background-image: none !important;
+				}
+			}
+		</style>
 </head>
-<body class="bg-[url('assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+<body class="bg-[url('assets/copy.png')] bg-cover bg-fixed bg-center min-h-screen">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,10 +94,10 @@ v<!DOCTYPE html>
 					<i class="fas fa-comment-dots"></i>
 					<span>Complaints</span>
 				</a>
-				<a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+				<!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
 					<i class="fas fa-file-alt"></i>
 					<span>Blotter</span>
-				</a>
+				</a> -->
 				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
 					<i class="fas fa-star"></i>
 					<span>Feedback</span>
@@ -194,7 +209,7 @@ v<!DOCTYPE html>
         <!-- Announcements List -->
         <div class="space-y-6">
             <!-- Emergency Announcement -->
-            <div class="bg-white border-l-4 border-red-500 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
                         <div class="flex items-center space-x-3">
@@ -230,7 +245,7 @@ v<!DOCTYPE html>
             </div>
 
             <!-- Event Announcement -->
-            <div class="bg-white border-l-4 border-blue-500 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
                         <div class="flex items-center space-x-3">
@@ -266,7 +281,7 @@ v<!DOCTYPE html>
             </div>
 
             <!-- Service Announcement -->
-            <div class="bg-white border-l-4 border-green-500 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
                         <div class="flex items-center space-x-3">
@@ -301,7 +316,7 @@ v<!DOCTYPE html>
             </div>
 
             <!-- General Announcement -->
-            <div class="bg-white border-l-4 border-purple-500 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
                         <div class="flex items-center space-x-3">
