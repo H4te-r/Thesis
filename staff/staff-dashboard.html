@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Staff Dashboard - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <!-- LOGO AREA - Replace with actual logo -->
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <!-- Fallback icon if no logo -->
+                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Barangay Central</h1>
+                        <p class="text-sm opacity-90">Staff Dashboard</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#dashboard" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="staff-certificates.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/certificates-icon.png" alt="Certificates" class="w-5 h-5">
+                        <span>Certificates</span>
+                    </a>
+                    <a href="staff-complaints.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/complaints-icon.png" alt="Complaints" class="w-5 h-5">
+                        <span>Complaints</span>
+                    </a>
+                    <a href="staff-requests.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/requests-icon.png" alt="Requests" class="w-5 h-5">
+                        <span>Requests</span>
+                    </a>
+                    <a href="staff-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <span>Reports</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <div class="text-sm font-semibold">Staff Member Pedro Torres</div>
+                        <div class="text-xs opacity-80">Barangay Staff / Encoder</div>
+                    </div>
+                    <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
+                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16">
+        <!-- Dashboard Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-barangay-green">Staff Dashboard</h1>
+                <p class="text-gray-600 mt-2">Data encoding and processing tasks</p>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                    <img src="path/to/your/certificates-encoded-icon.png" alt="Certificates Encoded" class="w-8 h-8">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">45</h3>
+                    <p class="text-gray-600 mb-1">Certificates Encoded</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Today</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                    <img src="path/to/your/complaints-encoded-icon.png" alt="Complaints Encoded" class="w-8 h-8">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">12</h3>
+                    <p class="text-gray-600 mb-1">Complaints Encoded</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-green-100 text-green-800">Today</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                    <img src="path/to/your/requests-encoded-icon.png" alt="Requests Encoded" class="w-8 h-8">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">23</h3>
+                    <p class="text-gray-600 mb-1">Requests Encoded</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-yellow-100 text-yellow-800">Today</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
+                    <img src="path/to/your/total-encoded-icon.png" alt="Total Encoded" class="w-8 h-8">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">80</h3>
+                    <p class="text-gray-600 mb-1">Total Encoded</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-purple-100 text-purple-800">Today</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold text-barangay-green mb-6">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="staff-certificates.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <img src="path/to/your/encode-certificate-icon.png" alt="Encode Certificate" class="w-12 h-12">
+                    <span class="font-medium text-gray-700">Encode Certificate</span>
+                </a>
+                <a href="staff-complaints.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <img src="path/to/your/encode-complaint-icon.png" alt="Encode Complaint" class="w-12 h-12">
+                    <span class="font-medium text-gray-700">Encode Complaint</span>
+                </a>
+                <a href="staff-requests.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <img src="path/to/your/encode-request-icon.png" alt="Encode Request" class="w-12 h-12">
+                    <span class="font-medium text-gray-700">Encode Request</span>
+                </a>
+                <a href="staff-reports.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <img src="path/to/your/view-reports-icon.png" alt="View Reports" class="w-12 h-12">
+                    <span class="font-medium text-gray-700">View Reports</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Encoding Activities -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Recent Certificate Encodings -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-barangay-green">Recent Certificate Encodings</h2>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">45 Today</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <img src="path/to/your/certificate-icon.png" alt="Certificate" class="w-6 h-6">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">BC-2024-156</h4>
+                                <p class="text-gray-600 text-sm">Barangay Clearance - Maria Garcia</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
+                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <img src="path/to/your/certificate-icon.png" alt="Certificate" class="w-6 h-6">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">CR-2024-157</h4>
+                                <p class="text-gray-600 text-sm">Certificate of Residency - Juan Santos</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
+                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <img src="path/to/your/certificate-icon.png" alt="Certificate" class="w-6 h-6">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">CI-2024-158</h4>
+                                <p class="text-gray-600 text-sm">Certificate of Indigency - Ana Cruz</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
+                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="staff-certificates.html" class="text-barangay-green hover:text-barangay-green-light font-semibold">View All Certificates →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Complaint Encodings -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-barangay-green">Recent Complaint Encodings</h2>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">12 Today</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <img src="path/to/your/complaint-icon.png" alt="Complaint" class="w-6 h-6">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">COMP-2024-089</h4>
+                                <p class="text-gray-600 text-sm">Noise Complaint - Pedro Reyes</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
+                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <img src="path/to/your/complaint-icon.png" alt="Complaint" class="w-6 h-6">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">COMP-2024-090</h4>
+                                <p class="text-gray-600 text-sm">Road Condition - Maria Santos</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
+                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <img src="path/to/your/complaint-icon.png" alt="Complaint" class="w-6 h-6">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">COMP-2024-091</h4>
+                                <p class="text-gray-600 text-sm">Security Concern - Juan Dela Cruz</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
+                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="staff-complaints.html" class="text-barangay-green hover:text-barangay-green-light font-semibold">View All Complaints →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Summary -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-barangay-green mb-6">Daily Encoding Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="path/to/your/certificate-summary-icon.png" alt="Certificates" class="w-10 h-10">
+                    </div>
+                    <h3 class="text-2xl font-bold text-barangay-green mb-2">45</h3>
+                    <p class="text-gray-600 mb-4">Certificates Encoded</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">90% of daily target</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="path/to/your/complaint-summary-icon.png" alt="Complaints" class="w-10 h-10">
+                    </div>
+                    <h3 class="text-2xl font-bold text-barangay-green mb-2">12</h3>
+                    <p class="text-gray-600 mb-4">Complaints Encoded</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">60% of daily target</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="path/to/your/request-summary-icon.png" alt="Requests" class="w-10 h-10">
+                    </div>
+                    <h3 class="text-2xl font-bold text-barangay-green mb-2">23</h3>
+                    <p class="text-gray-600 mb-4">Requests Encoded</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 77%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">77% of daily target</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2024 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
