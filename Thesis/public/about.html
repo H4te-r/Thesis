@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Barangay Central - Quezon City</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[url('assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <!-- LOGO AREA - Replace with actual logo -->
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <!-- Fallback icon if no logo -->
+                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Barangay Central</h1>
+                        <p class="text-sm opacity-90">Quezon City</p>
+                    </div>
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/about-icon.png" alt="About" class="w-5 h-5">
+                        <span>About</span>
+                    </a>
+                    <a href="announcements-public.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <span>Announcements</span>
+                    </a>
+                    <a href="contact.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/contact-icon.png" alt="Contact" class="w-5 h-5">
+                        <span>Contact</span>
+                    </a>
+                    <a href="login.html" class="bg-white text-barangay-green px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 font-semibold shadow-lg">
+                        Login / Register
+                    </a>
+                </nav>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-white hover:text-white focus:outline-none" id="mobile-menu-button">
+                    <img src="path/to/your/menu-icon.png" alt="Menu" class="w-6 h-6">
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden bg-barangay-green-light" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-white/20">About</a>
+                <a href="announcements-public.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">Announcements</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">Contact</a>
+                <a href="login.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-white/20 rounded-lg text-center mt-2">Login / Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative bg-cover bg-center h-96 flex items-center" style="background-image: url('https://via.placeholder.com/1500x600/0f5e1a/ffffff?text=Barangay+Hall+Exterior');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center text-white p-8">
+                <h1 class="text-4xl font-bold mb-4">About Barangay Central</h1>
+                <p class="text-xl">Serving the community with dedication, integrity, and excellence since 1980</p>
+            </div>
+        </section>
+
+        <!-- About Content -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-barangay-green mb-6">Our History</h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi commodi atque corrupti possimus accusamus perspiciatis vitae, assumenda quaerat iste nihil nisi odio impedit quidem rerum, sequi id sit animi qui.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos laudantium nulla, autem vel praesentium possimus ex eligendi, pariatur dignissimos quidem est aperiam dolores vitae eum. Fugit sunt veritatis vitae eveniet?
+                        </p>
+                        <div class="flex space-x-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-barangay-green">44</div>
+                                <div class="text-sm text-gray-600">Years of Service</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-barangay-green">2,847</div>
+                                <div class="text-sm text-gray-600">Residents</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-barangay-green">15</div>
+                                <div class="text-sm text-gray-600">Barangay Officials</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400/0f5e1a/ffffff?text=Barangay+Hall+Interior" alt="Barangay Hall Interior" class="rounded-xl shadow-lg">
+                        <div class="absolute -bottom-6 -right-6 bg-barangay-green text-white p-6 rounded-xl shadow-lg">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">Est. 1980</div>
+                                <div class="text-sm">Serving the Community</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="py-16 bg-barangay-green-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-barangay-green mb-4">Mission & Vision</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Our commitment to excellence and community service</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-eye text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-barangay-green mb-4 text-center">Vision</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore rem, enim inventore dolor natus cum doloremque voluptatem ullam dignissimos quasi dolorum odio, reiciendis optio deleniti eum? Doloremque hic ipsam iure!
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-bullseye text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-barangay-green mb-4 text-center">Mission</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quidem eaque illo eos consequuntur dolore, culpa debitis dolor facere? Sed veniam sapiente ea voluptatem perferendis ullam blanditiis a deserunt excepturi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barangay Officials -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-barangay-green mb-4">Barangay Officials</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Meet the dedicated public servants who lead our community</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/96x96/0f5e1a/ffffff?text=MS" alt="Captain Maria Santos" class="w-24 h-24 rounded-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-2">Maria Santos</h3>
+                        <p class="text-gray-600 mb-2">Barangay Captain</p>
+                        <p class="text-sm text-gray-500">Leading the community since 2022</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/96x96/0f5e1a/ffffff?text=NVI" alt="Secretary Noela Impreso" class="w-24 h-24 rounded-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-2">Noela V. Impreso</h3>
+                        <p class="text-gray-600 mb-2">Barangay Secretary</p>
+                        <p class="text-sm text-gray-500">Managing records and documentation</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/96x96/0f5e1a/ffffff?text=MR" alt="Treasurer Maria Reyes" class="w-24 h-24 rounded-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-2">Maria Reyes</h3>
+                        <p class="text-gray-600 mb-2">Barangay Treasurer</p>
+                        <p class="text-sm text-gray-500">Managing financial affairs</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/96x96/0f5e1a/ffffff?text=JS" alt="Kagawad Juan Santos" class="w-24 h-24 rounded-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-2">Juan Santos</h3>
+                        <p class="text-gray-600 mb-2">Barangay Kagawad</p>
+                        <p class="text-sm text-gray-500">Committee on Peace & Order</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/96x96/0f5e1a/ffffff?text=SL" alt="Dr. Sarah Lopez" class="w-24 h-24 rounded-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-2">Dr. Sarah Lopez</h3>
+                        <p class="text-gray-600 mb-2">Health Worker</p>
+                        <p class="text-sm text-gray-500">Community health services</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/96x96/0f5e1a/ffffff?text=PT" alt="Tanod Pedro Torres" class="w-24 h-24 rounded-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-2">Pedro Torres</h3>
+                        <p class="text-gray-600 mb-2">Barangay Tanod</p>
+                        <p class="text-sm text-gray-500">Community security</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Services -->
+        <section class="py-16 bg-barangay-green-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-barangay-green mb-4">Community Services</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive services for the welfare of all residents</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-certificate text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-3">Certificate Services</h3>
+                        <p class="text-gray-600 text-sm">Barangay Clearance, Certificate of Residency, Certificate of Indigency, and other official documents</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-3">Peace & Order</h3>
+                        <p class="text-gray-600 text-sm">24/7 security patrol, dispute mediation, and community safety programs</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-3">Health Services</h3>
+                        <p class="text-gray-600 text-sm">Health checkups, vaccinations, medical assistance, and health education programs</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-helping text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-3">Social Services</h3>
+                        <p class="text-gray-600 text-sm">Financial assistance, senior citizen programs, and support for families in need</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-tools text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-3">Infrastructure</h3>
+                        <p class="text-gray-600 text-sm">Road maintenance, waste collection, street lighting, and public facility management</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-barangay-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-barangay-green mb-3">Education</h3>
+                        <p class="text-gray-600 text-sm">Scholarship programs, educational assistance, and youth development initiatives</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-16 bg-barangay-green text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="text-xl mb-8 opacity-90">Be part of a thriving community that values service, unity, and progress</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="login.html" class="bg-white text-barangay-green px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                        Register as Resident
+                    </a>
+                    <a href="contact.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-barangay-green transition-colors duration-300">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-barangay-green text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <!-- LOGO AREA - Replace with actual logo -->
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <img src="assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                            <!-- Fallback icon if no logo -->
+                            <i class="fas fa-building text-2xl text-barangay-green" style="display: none;"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Barangay Central</h3>
+                            <p class="text-sm text-gray-400">Quezon City</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Serving the community with dedication, integrity, and excellence since 1980.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="announcements-public.html" class="text-gray-400 hover:text-white transition-colors duration-300">Announcements</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition-colors duration-300">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Information</h3>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>123 Barangay Hall Street, Barangay Central, Quezon City</p>
+                        <p><i class="fas fa-phone mr-2"></i>(02) 8123-4567</p>
+                        <p><i class="fas fa-envelope mr-2"></i>info@barangaycentralqc.gov.ph</p>
+                        <p><i class="fas fa-clock mr-2"></i>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 Barangay Central, Quezon City. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

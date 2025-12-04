@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <!-- LOGO AREA - Replace with actual logo -->
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <!-- Fallback icon if no logo -->
+                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Barangay Central</h1>
+                        <p class="text-sm opacity-90">Account Settings</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="health-worker-dashboard.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="health-worker-settings.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/settings-icon.png" alt="Settings" class="w-5 h-5">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <div class="text-sm font-semibold">Health Worker Dr. Pedro</div>
+                        <div class="text-xs opacity-80">Barangay Health Worker</div>
+                    </div>
+                    <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
+                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-barangay-green">Account Settings</h1>
+                <p class="text-gray-600 mt-2">Manage your account preferences and security settings</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Settings Menu -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-barangay-green mb-4">Settings Menu</h3>
+                    <nav class="space-y-2">
+                        <a href="#profile" class="flex items-center space-x-3 p-3 rounded-lg bg-barangay-green-bg text-barangay-green font-semibold">
+                            <img src="path/to/your/profile-icon.png" alt="Profile" class="w-5 h-5">
+                            <span>Profile Settings</span>
+                        </a>
+                        <a href="#security" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/security-icon.png" alt="Security" class="w-5 h-5">
+                            <span>Security</span>
+                        </a>
+                        <a href="#notifications" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/notifications-icon.png" alt="Notifications" class="w-5 h-5">
+                            <span>Notifications</span>
+                        </a>
+                        <a href="#preferences" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/preferences-icon.png" alt="Preferences" class="w-5 h-5">
+                            <span>Preferences</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Profile Settings -->
+                <div id="profile" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Profile Settings</h2>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" value="Pedro" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" value="Mendoza" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="position" class="block text-sm font-medium text-gray-700 mb-2">Position</label>
+                            <input type="text" id="position" name="position" value="Barangay Health Worker" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent" readonly>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" value="health.mendoza@barangay.gov.ph" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" value="0917-123-4567" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div id="security" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Security Settings</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Change Password</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label for="currentPassword" class="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+                                    <input type="password" id="newPassword" name="newPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                                </div>
+                                <button type="submit" class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                                    Update Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification Settings -->
+                <div id="notifications" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Notification Settings</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Email Notifications</h3>
+                                <p class="text-sm text-gray-600">Receive updates via email</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Health Program Updates</h3>
+                                <p class="text-sm text-gray-600">Notifications about health programs and schedules</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Emergency Alerts</h3>
+                                <p class="text-sm text-gray-600">Health emergency notifications</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2024 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

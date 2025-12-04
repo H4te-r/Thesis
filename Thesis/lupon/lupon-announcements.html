@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Lupon Tagapamayapa - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <!-- LOGO AREA - Replace with actual logo -->
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <!-- Fallback icon if no logo -->
+                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Barangay Central</h1>
+                        <p class="text-sm opacity-90">Lupon Announcements</p>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-white hover:text-white focus:outline-none" id="mobile-menu-button">
+                    <img src="path/to/your/menu-icon.png" alt="Menu" class="w-6 h-6">
+                </button>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="lupon-dashboard.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="lupon-complaint-cases.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/complaints-icon.png" alt="Complaints" class="w-5 h-5">
+                        <span>Complaint Cases</span>
+                    </a>
+                    <a href="lupon-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <span>Reports</span>
+                    </a>
+                    <a href="lupon-announcements.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <span>Announcements</span>
+                    </a>
+                    <a href="lupon-settings.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/settings-icon.png" alt="Settings" class="w-5 h-5">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <div class="text-sm font-semibold">Lupon Tagapamayapa</div>
+                        <div class="text-xs opacity-80">Dispute Resolution</div>
+                    </div>
+                    <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
+                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden bg-barangay-green-light" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="lupon-dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-barangay-green-light">Dashboard</a>
+                <a href="lupon-complaint-cases.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-barangay-green-light">Complaint Cases</a>
+                <a href="lupon-reports.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-barangay-green-light">Reports</a>
+                <a href="lupon-announcements.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-barangay-green-light">Announcements</a>
+                <a href="lupon-settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-barangay-green-light">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-barangay-green">Announcements</h1>
+                <p class="text-gray-600 mt-2">View and manage dispute resolution announcements</p>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-2">
+                    <img src="path/to/your/add-icon.png" alt="Add" class="w-5 h-5">
+                    <span>Create Announcement</span>
+                </button>
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center space-x-2">
+                    <img src="path/to/your/filter-icon.png" alt="Filter" class="w-5 h-5">
+                    <span>Filter</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Announcement Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="path/to/your/mediation-icon.png" alt="Mediation" class="w-8 h-8">
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">Mediation</h3>
+                <p class="text-gray-600 text-sm">Mediation schedules</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="path/to/your/hearing-icon.png" alt="Hearing" class="w-8 h-8">
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">Hearings</h3>
+                <p class="text-gray-600 text-sm">Hearing schedules</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="path/to/your/resolution-icon.png" alt="Resolution" class="w-8 h-8">
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">Resolutions</h3>
+                <p class="text-gray-600 text-sm">Case resolutions</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="path/to/your/general-icon.png" alt="General" class="w-8 h-8">
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">General</h3>
+                <p class="text-gray-600 text-sm">General announcements</p>
+            </div>
+        </div>
+
+        <!-- Announcements List -->
+        <div class="space-y-6">
+            <!-- Announcement 1 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-red-500">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-semibold rounded-full">Mediation</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-semibold rounded-full">Scheduled</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                            <img src="path/to/your/edit-icon.png" alt="Edit" class="w-4 h-4">
+                        </button>
+                        <button class="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Delete">
+                            <img src="path/to/your/delete-icon.png" alt="Delete" class="w-4 h-4">
+                        </button>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Mediation Session - Property Dispute</h2>
+                <p class="text-gray-700 mb-4">A mediation session has been scheduled for the property dispute between residents. All parties involved are required to attend.</p>
+                <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                        <span>January 22, 2024</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/time-icon.png" alt="Time" class="w-4 h-4">
+                        <span>2:00 PM - 4:00 PM</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/location-icon.png" alt="Location" class="w-4 h-4">
+                        <span>Lupon Office</span>
+                    </span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-500">Posted by: Lupon Tagapamayapa</span>
+                        <span class="text-sm text-gray-500">•</span>
+                        <span class="text-sm text-gray-500">1 hour ago</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-4 py-2 bg-barangay-green text-white rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Announcement 2 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-yellow-500">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold rounded-full">Hearing</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-semibold rounded-full">Scheduled</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                            <img src="path/to/your/edit-icon.png" alt="Edit" class="w-4 h-4">
+                        </button>
+                        <button class="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Delete">
+                            <img src="path/to/your/delete-icon.png" alt="Delete" class="w-4 h-4">
+                        </button>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Hearing Schedule - Noise Complaint</h2>
+                <p class="text-gray-700 mb-4">A hearing has been scheduled for the noise complaint case. Both parties are required to attend with their witnesses.</p>
+                <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                        <span>January 24, 2024</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/time-icon.png" alt="Time" class="w-4 h-4">
+                        <span>10:00 AM - 12:00 PM</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/location-icon.png" alt="Location" class="w-4 h-4">
+                        <span>Lupon Office</span>
+                    </span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-500">Posted by: Lupon Tagapamayapa</span>
+                        <span class="text-sm text-gray-500">•</span>
+                        <span class="text-sm text-gray-500">3 hours ago</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-4 py-2 bg-barangay-green text-white rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Announcement 3 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-500">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">Resolution</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-semibold rounded-full">Completed</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                            <img src="path/to/your/edit-icon.png" alt="Edit" class="w-4 h-4">
+                        </button>
+                        <button class="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Delete">
+                            <img src="path/to/your/delete-icon.png" alt="Delete" class="w-4 h-4">
+                        </button>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Case Resolution - Boundary Dispute</h2>
+                <p class="text-gray-700 mb-4">The boundary dispute case has been successfully resolved through mediation. Both parties have agreed to the settlement terms.</p>
+                <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                        <span>January 18, 2024</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/time-icon.png" alt="Time" class="w-4 h-4">
+                        <span>3:00 PM - 5:00 PM</span>
+                    </span>
+                    <span class="flex items-center space-x-2">
+                        <img src="path/to/your/location-icon.png" alt="Location" class="w-4 h-4">
+                        <span>Lupon Office</span>
+                    </span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-500">Posted by: Lupon Tagapamayapa</span>
+                        <span class="text-sm text-gray-500">•</span>
+                        <span class="text-sm text-gray-500">2 days ago</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-4 py-2 bg-barangay-green text-white rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-8 flex items-center justify-between">
+            <div class="text-sm text-gray-600">
+                Showing 1 to 3 of 8 announcements
+            </div>
+            <div class="flex space-x-2">
+                <button class="px-3 py-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-300">
+                    Previous
+                </button>
+                <button class="px-3 py-2 bg-barangay-green text-white rounded-lg">1</button>
+                <button class="px-3 py-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-300">2</button>
+                <button class="px-3 py-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-300">3</button>
+                <span class="px-3 py-2 text-gray-500">...</span>
+                <button class="px-3 py-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-300">3</button>
+                <button class="px-3 py-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-300">
+                    Next
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2024 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

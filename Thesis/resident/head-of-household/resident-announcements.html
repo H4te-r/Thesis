@@ -1,0 +1,424 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+			/* Default: background image for desktop */
+			body {
+				background: url('../assets/copy.png') no-repeat center center fixed;
+				background-size: cover;
+			}
+
+			/* Mobile view: solid green background */
+			@media (max-width: 768px) {
+				body {
+					background: #0f5e1a !important;
+					background-image: none !important;
+				}
+			}
+		</style>
+</head>
+<body class="bg-[url(\"../assets/copy.png\")] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between py-3">
+					<!-- LEFT SIDE: LOGO + TITLE -->
+					<div class="flex items-center space-x-3">
+						<div class="w-12 h-12 rounded-full overflow-hidden">
+							<img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-full h-full object-cover">
+						</div>
+						<div class="flex flex-col leading-tight">
+							<span class="text-lg font-bold">Barangay Central</span>
+							<span class="text-sm opacity-90">Resident Portal</span>
+						</div>
+					</div>
+					<!-- RIGHT SIDE: PROFILE + HAMBURGER -->
+					<div class="flex items-center space-x-3">
+						<!-- PROFILE INFO -->
+						<div class="flex flex-col text-right leading-tight">
+							<span class="text-sm font-semibold">Juan Dela Cruz</span>
+							<span class="text-xs opacity-80">Head of Household</span>
+						</div>
+						<!-- MENU BUTTON -->
+						<button id="menu-toggle" class="text-white hover:text-white focus:outline-none">
+							<i class="fas fa-bars text-2xl"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- SIDE MENU -->
+		<div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-[#15803d] text-white transform -translate-x-full transition-transform duration-300 z-50">
+			<div class="p-4 flex justify-between items-center border-b border-white/20">
+				<h2 class="text-lg font-bold">Menu</h2>
+				<button id="close-menu">
+					<i class="fas fa-times text-xl"></i>
+				</button>
+			</div>
+			<div class="mt-4 flex flex-col space-y-2 px-4">
+				<a href="resident-dashboard.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-home"></i>
+					<span>Dashboard</span>
+				</a>
+				<a href="resident-household.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-users"></i>
+					<span>Household</span>
+				</a>
+				<a href="resident-certificates.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-certificate"></i>
+					<span>Certificates</span>
+				</a>
+				<a href="resident-services.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-tools"></i>
+					<span>Services</span>
+				</a>
+				<a href="resident-complaints.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-comment-dots"></i>
+					<span>Complaints</span>
+				</a>
+				<!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-file-alt"></i>
+					<span>Blotter</span>
+				</a> -->
+				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-star"></i>
+					<span>Feedback</span>
+				</a>
+				<a href="resident-announcements.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-bullhorn"></i>
+					<span>Announcements</span>
+				</a>
+				<a href="resident-reports.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-chart-bar"></i>
+					<span>Reports</span>
+				</a>
+				<a href="resident-settings.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-cog"></i>
+					<span>Settings</span>
+				</a>
+				<a href="resident-profile.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-user"></i>
+					<span>Profile</span>
+				</a>
+				<div class="pt-4 mt-4 border-t border-white/20">
+					<button onclick="window.location.href='../public/login.html'" class="flex items-center space-x-2 py-2 w-full rounded hover:bg-white/20">
+						<i class="fas fa-sign-out-alt"></i>
+						<span>Logout</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- OVERLAY -->
+		<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+		<script>
+			const menu = document.getElementById('side-menu');
+			const overlay = document.getElementById('overlay');
+			const openBtn = document.getElementById('menu-toggle');
+			const closeBtn = document.getElementById('close-menu');
+			openBtn.addEventListener('click', () => {
+				menu.classList.remove('-translate-x-full');
+				overlay.classList.remove('hidden');
+			});
+			closeBtn.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+			overlay.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+		</script>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16 mt-20">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-white">Community Announcements</h1>
+                <p class="text-white mt-2">Stay updated with the latest barangay news and events</p>
+            </div>
+            <div class="flex space-x-4">
+                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                    <option>All Categories</option>
+                    <option>Emergency</option>
+                    <option>Events</option>
+                    <option>Services</option>
+                    <option>General</option>
+                </select>
+                <button class="bg-barangay-green text-white px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center justify-center space-x-2">
+                    <i class="fas fa-filter"></i>
+                    <span>Filter</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Announcement Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-exclamation-triangle text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">Emergency</h3>
+                <p class="text-gray-600 text-sm mb-4">Urgent announcements and alerts</p>
+                <div class="text-2xl font-bold text-red-600">3</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-calendar text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">Events</h3>
+                <p class="text-gray-600 text-sm mb-4">Community events and activities</p>
+                <div class="text-2xl font-bold text-blue-600">5</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-tools text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">Services</h3>
+                <p class="text-gray-600 text-sm mb-4">Service updates and schedules</p>
+                <div class="text-2xl font-bold text-green-600">7</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-info-circle text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-barangay-green mb-2">General</h3>
+                <p class="text-gray-600 text-sm mb-4">General information and updates</p>
+                <div class="text-2xl font-bold text-purple-600">12</div>
+            </div>
+        </div>
+
+        <!-- Announcements List -->
+        <div class="space-y-6">
+            <!-- Emergency Announcement -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-exclamation-triangle text-xl text-red-600"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800">Emergency: Road Closure</h2>
+                                <p class="text-sm text-gray-600">Posted by Captain Maria Santos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-semibold rounded-full uppercase">Emergency</span>
+                            <span class="text-sm text-gray-500">Jan 15, 2024</span>
+                        </div>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p class="text-gray-700 mb-4">
+                            <strong>URGENT NOTICE:</strong> Matino Street will be closed from January 16-20, 2024 for emergency road repairs. 
+                            All residents are advised to use alternative routes during this period.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Alternative routes:
+                            <br>• Santos Street to Magsaysay Avenue
+                            <br>• Rizal Street to Quezon Avenue
+                            <br>• Dela Cruz Street to EDSA
+                        </p>
+                        <p class="text-gray-700">
+                            For emergencies, please contact our hotline: (02) 8123-4569
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Announcement -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-calendar text-xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800">Community Cleanup Drive</h2>
+                                <p class="text-sm text-gray-600">Posted by Secretary Noela V. Impreso</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full uppercase">Event</span>
+                            <span class="text-sm text-gray-500">Jan 14, 2024</span>
+                        </div>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p class="text-gray-700 mb-4">
+                            Join us for our monthly community cleanup drive on <strong>January 25, 2024 at 6:00 AM</strong>. 
+                            Meet at the barangay hall for equipment distribution.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            What to bring:
+                            <br>• Gloves and face masks
+                            <br>• Drinking water
+                            <br>• Positive attitude
+                        </p>
+                        <p class="text-gray-700">
+                            Breakfast will be provided for all participants. Let's work together to keep our community clean!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Announcement -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-tools text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800">New Certificate Processing Hours</h2>
+                                <p class="text-sm text-gray-600">Posted by Treasurer Maria Reyes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full uppercase">Service</span>
+                            <span class="text-sm text-gray-500">Jan 12, 2024</span>
+                        </div>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p class="text-gray-700 mb-4">
+                            Starting January 20, 2024, our certificate processing hours will be updated to better serve our residents.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            New Schedule:
+                            <br>• Monday - Friday: 8:00 AM - 4:00 PM
+                            <br>• Saturday: 8:00 AM - 12:00 PM
+                            <br>• Sunday: Closed
+                        </p>
+                        <p class="text-gray-700">
+                            Online applications are still available 24/7 through our website.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General Announcement -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-info-circle text-xl text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800">Barangay Health Program</h2>
+                                <p class="text-sm text-gray-600">Posted by Dr. Sarah Lopez</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full uppercase">General</span>
+                            <span class="text-sm text-gray-500">Jan 10, 2024</span>
+                        </div>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p class="text-gray-700 mb-4">
+                            Free health screening will be available at the barangay hall every Wednesday from 8:00 AM to 12:00 PM.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Services include:
+                            <br>• Blood pressure monitoring
+                            <br>• Blood sugar testing
+                            <br>• Basic health consultation
+                            <br>• Vaccination updates
+                        </p>
+                        <p class="text-gray-700">
+                            Please bring your barangay ID and health card. No appointment necessary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center py-8">
+                <button class="bg-barangay-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                    Load More Announcements
+                </button>
+            </div>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">District IV, Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2025 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

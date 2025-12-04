@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Blotter Module</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[url(\"../assets/copy.png\")] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between py-3">
+					<!-- LEFT SIDE: LOGO + TITLE -->
+					<div class="flex items-center space-x-3">
+						<div class="w-12 h-12 rounded-full overflow-hidden">
+							<img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-full h-full object-cover">
+						</div>
+						<div class="flex flex-col leading-tight">
+							<span class="text-lg font-bold">Barangay Central</span>
+							<span class="text-sm opacity-90">Resident Portal</span>
+						</div>
+					</div>
+					<!-- RIGHT SIDE: PROFILE + HAMBURGER -->
+					<div class="flex items-center space-x-3">
+						<!-- PROFILE INFO -->
+						<div class="flex flex-col text-right leading-tight">
+							<span class="text-sm font-semibold">Juan Dela Cruz</span>
+							<span class="text-xs opacity-80">Head of Household</span>
+						</div>
+						<!-- MENU BUTTON -->
+						<button id="menu-toggle" class="text-white hover:text-white focus:outline-none">
+							<i class="fas fa-bars text-2xl"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- SIDE MENU -->
+		<div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-[#15803d] text-white transform -translate-x-full transition-transform duration-300 z-50">
+			<div class="p-4 flex justify-between items-center border-b border-white/20">
+				<h2 class="text-lg font-bold">Menu</h2>
+				<button id="close-menu">
+					<i class="fas fa-times text-xl"></i>
+				</button>
+			</div>
+			<div class="mt-4 flex flex-col space-y-2 px-4">
+				<a href="resident-dashboard.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-home"></i>
+					<span>Dashboard</span>
+				</a>
+				<a href="resident-household.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-users"></i>
+					<span>Household</span>
+				</a>
+				<a href="resident-certificates.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-certificate"></i>
+					<span>Certificates</span>
+				</a>
+				<a href="resident-services.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-tools"></i>
+					<span>Services</span>
+				</a>
+				<a href="resident-complaints.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-comment-dots"></i>
+					<span>Complaints</span>
+				</a>
+				<a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-file-alt"></i>
+					<span>Blotter</span>
+				</a>
+				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-star"></i>
+					<span>Feedback</span>
+				</a>
+				<a href="resident-announcements.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-bullhorn"></i>
+					<span>Announcements</span>
+				</a>
+				<a href="resident-reports.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-chart-bar"></i>
+					<span>Reports</span>
+				</a>
+				<a href="resident-settings.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-cog"></i>
+					<span>Settings</span>
+				</a>
+				<a href="resident-profile.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-user"></i>
+					<span>Profile</span>
+				</a>
+				<div class="pt-4 mt-4 border-t border-white/20">
+					<button onclick="window.location.href='../public/login.html'" class="flex items-center space-x-2 py-2 w-full rounded hover:bg-white/20">
+						<i class="fas fa-sign-out-alt"></i>
+						<span>Logout</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- OVERLAY -->
+		<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+		<script>
+			const menu = document.getElementById('side-menu');
+			const overlay = document.getElementById('overlay');
+			const openBtn = document.getElementById('menu-toggle');
+			const closeBtn = document.getElementById('close-menu');
+			openBtn.addEventListener('click', () => {
+				menu.classList.remove('-translate-x-full');
+				overlay.classList.remove('hidden');
+			});
+			closeBtn.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+			overlay.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+		</script>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16 mt-20">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">Blotter Module</h1>
+                    <p class="text-white">File and track formal incident reports for legal documentation.</p>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Quick Actions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <button onclick="openFileBlotterModal()" class="bg-barangay-green text-white p-4 rounded-lg hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-3">
+                            <i class="fas fa-plus-circle text-2xl"></i>
+                            <div class="text-left">
+                                <div class="font-semibold">File New Blotter</div>
+                                <div class="text-sm opacity-90">Report an incident</div>
+                            </div>
+                        </button>
+                        <button onclick="viewMyBlotters()" class="bg-white border-2 border-barangay-green text-barangay-green p-4 rounded-lg hover:bg-barangay-green-bg transition-colors duration-300 flex items-center space-x-3">
+                            <i class="fas fa-list text-2xl"></i>
+                            <div class="text-left">
+                                <div class="font-semibold">My Blotter Reports</div>
+                                <div class="text-sm opacity-75">View your filed reports</div>
+                            </div>
+                        </button>
+                        <button onclick="viewBlotterStatus()" class="bg-white border-2 border-barangay-green text-barangay-green p-4 rounded-lg hover:bg-barangay-green-bg transition-colors duration-300 flex items-center space-x-3">
+                            <i class="fas fa-clock text-2xl"></i>
+                            <div class="text-left">
+                                <div class="font-semibold">Check Status</div>
+                                <div class="text-sm opacity-75">Track progress</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Blotter Reports -->
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Recent Blotter Reports</h2>
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-semibold text-gray-800">Noise Complaint - Neighbor Dispute</h3>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded-full">Under Review</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Filed against neighbor for excessive noise after 10 PM on multiple occasions.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span>Filed: January 15, 2024</span>
+                                <span>Case #: BL-2024-001</span>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-semibold text-gray-800">Theft Report - Missing Bicycle</h3>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">Investigation</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Bicycle stolen from garage on January 10, 2024. Last seen around 8 PM.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span>Filed: January 12, 2024</span>
+                                <span>Case #: BL-2024-002</span>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-semibold text-gray-800">Assault Incident</h3>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Resolved</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Physical altercation resolved through mediation. Both parties agreed to terms.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span>Filed: January 5, 2024</span>
+                                <span>Case #: BL-2024-003</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blotter Filing Guidelines -->
+                <div class="bg-barangay-green-bg p-6 rounded-xl">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-4">Blotter Filing Guidelines</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">When to File a Blotter</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-barangay-green mt-1 mr-2"></i>
+                                    Criminal incidents (theft, assault, etc.)
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-barangay-green mt-1 mr-2"></i>
+                                    Neighbor disputes requiring documentation
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-barangay-green mt-1 mr-2"></i>
+                                    Property damage incidents
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-barangay-green mt-1 mr-2"></i>
+                                    Public disturbance complaints
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">What to Prepare</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-info-circle text-barangay-green mt-1 mr-2"></i>
+                                    Detailed description of the incident
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-info-circle text-barangay-green mt-1 mr-2"></i>
+                                    Date, time, and location of incident
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-info-circle text-barangay-green mt-1 mr-2"></i>
+                                    Names and contact info of involved parties
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-info-circle text-barangay-green mt-1 mr-2"></i>
+                                    Any supporting evidence or witnesses
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- File Blotter Modal -->
+    <div id="fileBlotterModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-barangay-green">File New Blotter Report</h2>
+                        <button onclick="closeFileBlotterModal()" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+
+                    <form id="blotterForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Incident Type</label>
+                                <select id="incidentType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                                    <option value="">Select incident type</option>
+                                    <option value="theft">Theft</option>
+                                    <option value="assault">Assault</option>
+                                    <option value="noise">Noise Complaint</option>
+                                    <option value="property_damage">Property Damage</option>
+                                    <option value="dispute">Neighbor Dispute</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date of Incident</label>
+                                <input type="date" id="incidentDate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Time of Incident</label>
+                            <input type="time" id="incidentTime" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Location of Incident</label>
+                            <input type="text" id="incidentLocation" placeholder="Street address or specific location" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Detailed Description</label>
+                            <textarea id="incidentDescription" rows="4" placeholder="Please provide a detailed description of what happened..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Complainant Name</label>
+                                <input type="text" id="complainantName" placeholder="Your full name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Complainant Contact</label>
+                                <input type="tel" id="complainantContact" placeholder="Phone number" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Respondent Information</label>
+                            <input type="text" id="respondentInfo" placeholder="Name and contact info of person(s) involved" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Witness Information (Optional)</label>
+                            <textarea id="witnessInfo" rows="2" placeholder="Names and contact info of any witnesses" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-barangay-green"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Supporting Documents (Optional)</label>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600 text-sm">Click to upload photos or documents</p>
+                                <p class="text-xs text-gray-500">Supported formats: JPG, PNG, PDF (Max 5MB each)</p>
+                                <input type="file" id="complaintDocuments" name="complaintDocuments" multiple accept=".jpg,.jpeg,.png,.pdf" class="hidden">
+                                <button type="button" onclick="document.getElementById('complaintDocuments').click()" class="mt-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                                    Choose Files
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-end space-x-4">
+                            <button type="button" onclick="closeFileBlotterModal()" class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors duration-300">
+                                Cancel
+                            </button>
+                            <button type="submit" class="px-6 py-2 bg-barangay-green text-white rounded-md hover:bg-barangay-green-light transition-colors duration-300">
+                                Submit Blotter Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">District IV, Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2025 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+                        <div class="text-sm font-semibold">Juan Dela Cruz</div>
+                        <div class="text-xs opacity-80">Head of Household</div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openFileBlotterModal() {
+            document.getElementById('fileBlotterModal').classList.remove('hidden');
+        }
+
+        function closeFileBlotterModal() {
+            document.getElementById('fileBlotterModal').classList.add('hidden');
+        }
+
+        function viewMyBlotters() {
+            // Placeholder for viewing blotter reports
+            alert('Viewing blotter reports functionality would be implemented here.');
+        }
+
+        function viewBlotterStatus() {
+            // Placeholder for checking blotter status
+            alert('Blotter status checking functionality would be implemented here.');
+        }
+
+        // Form submission handler
+        document.getElementById('blotterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                incidentType: document.getElementById('incidentType').value,
+                incidentDate: document.getElementById('incidentDate').value,
+                incidentTime: document.getElementById('incidentTime').value,
+                incidentLocation: document.getElementById('incidentLocation').value,
+                incidentDescription: document.getElementById('incidentDescription').value,
+                complainantName: document.getElementById('complainantName').value,
+                complainantContact: document.getElementById('complainantContact').value,
+                respondentInfo: document.getElementById('respondentInfo').value,
+                witnessInfo: document.getElementById('witnessInfo').value
+            };
+
+            // Basic validation
+            if (!formData.incidentType || !formData.incidentDate || !formData.incidentTime || 
+                !formData.incidentLocation || !formData.incidentDescription || 
+                !formData.complainantName || !formData.complainantContact || !formData.respondentInfo) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Placeholder for form submission
+            alert('Blotter report submitted successfully! Case number will be assigned shortly.');
+            closeFileBlotterModal();
+            document.getElementById('blotterForm').reset();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('fileBlotterModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFileBlotterModal();
+            }
+        });
+    </script>
+</footer>
+</body>
+</html>

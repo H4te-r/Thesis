@@ -1,0 +1,208 @@
+<!--
+  e-Barangay UI - Single-file HTML using Tailwind CSS (Play CDN)
+  - Background is an image (replace /images/bg.jpg)
+  - Navbar includes a placeholder for the barangay logo (replace /images/barangay-logo.png)
+  - Color palette: #0f5e1a (primary), black, white
+  - Responsive, accessible, and ready for customization
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-Barangay — Dashboard UI</title>
+  <!-- Tailwind Play CDN (for single-file prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Enable arbitrary colors and small config adjustments
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'barangay': '#0f5e1a'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Background image layer — replace the URL with your own image */
+    .bg-hero {
+      background-image: url('https://i0.wp.com/digicastnegros.com/wp-content/uploads/2024/05/wp-17153493383348043785168331164948.jpg?fit=414%2C259&ssl=1');
+      background-size: cover;
+      background-position: center;
+    }
+    /* subtle glass effect for panels */
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-black text-white">
+  <!-- Full-screen hero with background image -->
+  <div class="bg-hero min-h-screen flex flex-col">
+    <!-- NAVBAR -->
+    <header class="w-full">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <!-- Logo placeholder (replace src with actual barangay logo) -->
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center overflow-hidden">
+              <img src="/images/barangay-logo.png" alt="Barangay Logo" class="object-contain w-12 h-12" />
+            </div>
+            <div class="leading-tight">
+              <div class="text-lg font-semibold text-white">Barangay [Name]</div>
+              <div class="text-xs text-gray-200">e-Barangay Portal</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#services" class="px-3 py-2 rounded-md text-sm hover:bg-white/10">Services</a>
+          <a href="#news" class="px-3 py-2 rounded-md text-sm hover:bg-white/10">News</a>
+          <a href="#contact" class="px-3 py-2 rounded-md text-sm hover:bg-white/10">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button aria-label="Toggle language" class="text-sm px-3 py-2 rounded-md glass">EN | TL</button>
+          <form class="hidden sm:block">
+            <label for="search" class="sr-only">Search</label>
+            <input id="search" type="search" placeholder="Search services" class="px-3 py-2 rounded-md bg-white/10 placeholder-gray-300 text-white text-sm focus:outline-none focus:ring-2 focus:ring-barangay" />
+          </form>
+          <a href="#login" class="px-4 py-2 rounded-md text-sm font-medium border border-white/20 hover:bg-white/10">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero content -->
+    <main class="flex-1 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 py-12 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <!-- Left: Intro card -->
+          <section class="lg:col-span-2">
+            <div class="p-8 rounded-2xl glass border border-white/10">
+              <h1 class="text-4xl md:text-5xl font-extrabold text-white">Welcome to the e‑Barangay Portal</h1>
+              <p class="mt-4 text-gray-200 max-w-2xl">Fast access to barangay services, announcements, and public records. Replace this intro with a short mission statement and helpful quick actions for residents.</p>
+
+              <div class="mt-6 flex flex-wrap gap-4">
+                <a href="#apply" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg text-white bg-[#0f5e1a] hover:opacity-95 font-semibold shadow">Apply for Clearance</a>
+                <a href="#report" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg text-[#0f5e1a] bg-white hover:opacity-95 font-semibold">Report an Issue</a>
+                <a href="#pay" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg text-white bg-black/60 border border-white/20">Pay Fees</a>
+              </div>
+
+              <!-- Quick stats / cards -->
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-4 rounded-lg bg-white/6">
+                  <div class="text-sm text-gray-300">Registered Residents</div>
+                  <div class="text-2xl font-bold mt-1">12,345</div>
+                </div>
+                <div class="p-4 rounded-lg bg-white/6">
+                  <div class="text-sm text-gray-300">Open Requests</div>
+                  <div class="text-2xl font-bold mt-1">24</div>
+                </div>
+                <div class="p-4 rounded-lg bg-white/6">
+                  <div class="text-sm text-gray-300">Announcements</div>
+                  <div class="text-2xl font-bold mt-1">3</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services cards -->
+            <div id="services" class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <article class="p-6 rounded-xl bg-white/6">
+                <h3 class="font-semibold text-lg">Certificates & Clearances</h3>
+                <p class="mt-2 text-sm text-gray-300">Request Barangay Clearance, Residency Certificate, and other official documents online.</p>
+                <div class="mt-4 flex gap-3">
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-[#0f5e1a] text-white">Apply</a>
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-white text-[#0f5e1a]">Learn</a>
+                </div>
+              </article>
+
+              <article class="p-6 rounded-xl bg-white/6">
+                <h3 class="font-semibold text-lg">Incident Reporting</h3>
+                <p class="mt-2 text-sm text-gray-300">Report complaints, barangay maintenance issues, and request assistance.</p>
+                <div class="mt-4 flex gap-3">
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-[#0f5e1a] text-white">Report</a>
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-white text-[#0f5e1a]">Track</a>
+                </div>
+              </article>
+
+              <article class="p-6 rounded-xl bg-white/6">
+                <h3 class="font-semibold text-lg">Payment & Permits</h3>
+                <p class="mt-2 text-sm text-gray-300">Pay permits, fees, and view transaction history securely.</p>
+                <div class="mt-4 flex gap-3">
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-[#0f5e1a] text-white">Pay</a>
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-white text-[#0f5e1a]">History</a>
+                </div>
+              </article>
+
+              <article class="p-6 rounded-xl bg-white/6">
+                <h3 class="font-semibold text-lg">Announcements & Events</h3>
+                <p class="mt-2 text-sm text-gray-300">Stay updated with barangay advisories, schedules, and community events.</p>
+                <div class="mt-4 flex gap-3">
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-[#0f5e1a] text-white">View</a>
+                  <a href="#" class="text-sm px-3 py-2 rounded-md bg-white text-[#0f5e1a]">Subscribe</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- Right: Panel / Quick links -->
+          <aside class="p-6 rounded-2xl glass border border-white/10">
+            <h2 class="text-xl font-semibold">Quick Links</h2>
+            <ul class="mt-4 space-y-3 text-sm text-gray-200">
+              <li><a href="#" class="block p-3 rounded-md hover:bg-white/6">Apply for Clearance</a></li>
+              <li><a href="#" class="block p-3 rounded-md hover:bg-white/6">Report an Incident</a></li>
+              <li><a href="#" class="block p-3 rounded-md hover:bg-white/6">Schedule Appointment</a></li>
+              <li><a href="#" class="block p-3 rounded-md hover:bg-white/6">Contact Officials</a></li>
+            </ul>
+
+            <div class="mt-6">
+              <h3 class="text-sm font-medium text-gray-300">Office Hours</h3>
+              <p class="text-sm">Mon — Fri: 8:00 AM — 5:00 PM</p>
+              <p class="text-sm mt-1">Sat: 8:00 AM — 12:00 PM</p>
+            </div>
+          </aside>
+        </div>
+
+        <!-- News / announcements strip -->
+        <section id="news" class="mt-12 p-6 rounded-xl bg-white/6">
+          <h3 class="font-semibold text-lg">Latest Announcements</h3>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <article class="p-4 rounded-lg bg-white/8">
+              <h4 class="font-medium">Barangay Clean-up Drive</h4>
+              <p class="text-sm text-gray-300 mt-2">Join us for the clean-up drive this Saturday at 6:00 AM near the covered court.</p>
+            </article>
+            <article class="p-4 rounded-lg bg-white/8">
+              <h4 class="font-medium">Vaccination Schedule</h4>
+              <p class="text-sm text-gray-300 mt-2">Free vaccination for residents aged 12+ on October 20 at the barangay hall.</p>
+            </article>
+            <article class="p-4 rounded-lg bg-white/8">
+              <h4 class="font-medium">Election Reminder</h4>
+              <p class="text-sm text-gray-300 mt-2">Voter registration deadlines and guidelines available at the office.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="mt-10 text-sm text-gray-300">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <div class="font-semibold">Barangay [Name]</div>
+              <div class="text-xs text-gray-400">Address line • Contact: (09xx) xxx-xxxx • email@example.com</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="#" class="text-xs hover:underline">Privacy</a>
+              <a href="#" class="text-xs hover:underline">Terms</a>
+              <a href="#" class="text-xs hover:underline">Accessibility</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+			/* Default: background image for desktop */
+			body {
+				background: url('../assets/copy.png') no-repeat center center fixed;
+				background-size: cover;
+			}
+
+			/* Mobile view: solid green background */
+			@media (max-width: 768px) {
+				body {
+					background: #0f5e1a !important;
+					background-image: none !important;
+				}
+			}
+	</style>
+</head>
+<body class="bg-[url(\"../assets/copy.png\")] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between py-3">
+					<div class="flex items-center space-x-3">
+						<div class="w-12 h-12 rounded-full overflow-hidden">
+							<img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-full h-full object-cover">
+						</div>
+						<div class="flex flex-col leading-tight">
+							<span class="text-lg font-bold">Barangay Central</span>
+							<span class="text-sm opacity-90">Resident Portal</span>
+						</div>
+					</div>
+					<div class="flex items-center space-x-3">
+						<div class="flex flex-col text-right leading-tight">
+							<span class="text-sm font-semibold">Juan Dela Cruz</span>
+							<span class="text-xs opacity-80">Regular Resident</span>
+						</div>
+					<button id="menu-toggle" class="text-white hover:text-white focus:outline-none">
+						<i class="fas fa-bars text-2xl"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+		<!-- SIDE MENU -->
+		<div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-[#15803d] text-white transform -translate-x-full transition-transform duration-300 z-50">
+			<div class="p-4 flex justify-between items-center border-b border-white/20">
+				<h2 class="text-lg font-bold">Menu</h2>
+				<button id="close-menu">
+					<i class="fas fa-times text-xl"></i>
+				</button>
+			</div>
+			<div class="mt-4 flex flex-col space-y-2 px-4">
+				<a href="resident-dashboard.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-home"></i>
+					<span>Dashboard</span>
+				</a>
+				<a href="resident-household.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-users"></i>
+					<span>Household</span>
+				</a>
+				<a href="resident-certificates.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-certificate"></i>
+					<span>Certificates</span>
+				</a>
+				<a href="resident-services.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-tools"></i>
+					<span>Services</span>
+				</a>
+				<a href="resident-complaints.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-comment-dots"></i>
+					<span>Complaints</span>
+				</a>
+				<!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-file-alt"></i>
+					<span>Blotter</span>
+				</a> -->
+				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-star"></i>
+					<span>Feedback</span>
+				</a>
+				<a href="resident-announcements.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-bullhorn"></i>
+					<span>Announcements</span>
+				</a>
+				<a href="resident-reports.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-chart-bar"></i>
+					<span>Reports</span>
+				</a>
+				<a href="resident-settings.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-cog"></i>
+					<span>Settings</span>
+				</a>
+				<a href="resident-profile.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-user"></i>
+					<span>Profile</span>
+				</a>
+				<div class="pt-4 mt-4 border-t border-white/20">
+					<button onclick="window.location.href='../public/login.html'" class="flex items-center space-x-2 py-2 w-full rounded hover:bg-white/20">
+						<i class="fas fa-sign-out-alt"></i>
+						<span>Logout</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- OVERLAY -->
+		<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+		<script>
+			const menu = document.getElementById('side-menu');
+			const overlay = document.getElementById('overlay');
+			const openBtn = document.getElementById('menu-toggle');
+			const closeBtn = document.getElementById('close-menu');
+			openBtn.addEventListener('click', () => {
+				menu.classList.remove('-translate-x-full');
+				overlay.classList.remove('hidden');
+			});
+			closeBtn.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+			overlay.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+		</script>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16 mt-20">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-white">Account Settings</h1>
+                <p class="text-white mt-2">Manage your account preferences and security settings</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Settings Menu -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-barangay-green mb-4">Settings Menu</h3>
+                    <nav class="space-y-2">
+                        <a href="#profile" class="flex items-center space-x-3 p-3 rounded-lg bg-barangay-green-bg text-barangay-green font-semibold">
+                            <img src="path/to/your/profile-icon.png" alt="Profile" class="w-5 h-5">
+                            </span></a>Profile Settings</span>
+                        </a>
+                        <a href="#security" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/security-icon.png" alt="Security" class="w-5 h-5">
+                            </span></a>Security</span>
+                        </a>
+                        <a href="#notifications" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/notifications-icon.png" alt="Notifications" class="w-5 h-5">
+                            </span></a>Notifications</span>
+                        </a>
+                        <a href="#privacy" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/privacy-icon.png" alt="Privacy" class="w-5 h-5">
+                            </span></a>Privacy</span>
+                        </a>
+                        <a href="#preferences" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-barangay-green-bg text-gray-700 hover:text-barangay-green transition-colors duration-300">
+                            <img src="path/to/your/preferences-icon.png" alt="Preferences" class="w-5 h-5">
+                            </span></a>Preferences</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Profile Settings -->
+                <div id="profile" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Profile Settings</h2>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" value="Juan" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" value="Dela Cruz" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" value="juan.delacruz@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" value="0917-123-4567" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                            <textarea id="address" name="address" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">123 Matino Street, Barangay Central, Quezon City</textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div id="security" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Security Settings</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Change Password</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label for="currentPassword" class="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+                                    <input type="password" id="newPassword" name="newPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+                                </div>
+                                <button type="submit" class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                                    Update Password
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 pt-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Two-Factor Authentication</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-700">Add an extra layer of security to your account</p>
+                                    <p class="text-sm text-gray-500">Currently disabled</p>
+                                </div>
+                                <button class="bg-barangay-green text-white px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+                                    Enable
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification Settings -->
+                <div id="notifications" class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Notification Settings</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Email Notifications</h3>
+                                <p class="text-sm text-gray-600">Receive updates via email</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">SMS Notifications</h3>
+                                <p class="text-sm text-gray-600">Receive updates via SMS</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Certificate Updates</h3>
+                                <p class="text-sm text-gray-600">Notifications about certificate status</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Service Request Updates</h3>
+                                <p class="text-sm text-gray-600">Notifications about service request status</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Community Announcements</h3>
+                                <p class="text-sm text-gray-600">Important barangay announcements</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-barangay-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-barangay-green"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Actions -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-barangay-green mb-6">Account Actions</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Download Data</h3>
+                                <p class="text-sm text-gray-600">Download a copy of your data</p>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                                Download
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Deactivate Account</h3>
+                                <p class="text-sm text-gray-600">Temporarily disable your account</p>
+                            </div>
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-700 transition-colors duration-300">
+                                Deactivate
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-4 border border-red-200 rounded-lg bg-red-50">
+                            <div>
+                                <h3 class="font-semibold text-red-800">Delete Account</h3>
+                                <p class="text-sm text-red-600">Permanently delete your account and all data</p>
+                            </div>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">District IV, Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2025 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

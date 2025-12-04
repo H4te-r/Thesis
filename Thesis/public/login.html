@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Barangay Central E-Government System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-barangay-green md:bg-[url('../assets/ebarBackround.png')] md:bg-cover md:bg-fixed md:bg-center min-h-screen flex items-center justify-center p-8 relative">
+    <div class="absolute inset-0 bg-white bg-opacity-20 hidden md:block"></div>
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-md">
+        <div class="bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white p-8 text-center">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+            </div>
+            <h1 class="text-2xl font-semibold mb-2">Barangay Central</h1>
+            <p class="text-sm opacity-90">E-Government System</p>
+        </div>
+
+        <div class="p-8">
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="username" name="username" required class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-barangay-green focus:outline-none transition-colors duration-300">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="password" id="password" name="password" required class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-barangay-green focus:outline-none transition-colors duration-300">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-barangay-green text-white py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-all duration-300 flex items-center justify-center space-x-2 hover:-translate-y-0.5 hover:shadow-lg">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </button>
+            </form>
+
+            <div class="text-center mt-6">
+                <a href="#" onclick="showForgotPassword()" class="text-barangay-green text-sm hover:text-barangay-green-light transition-colors duration-300">
+                    Forgot Password?
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const usernameLower = username.toLowerCase();
+
+            // Demo authentication
+            const validCredentials = {
+                'secretary': 'password123',
+                'captain': 'password123',
+                'tanod': 'password123',
+                'head001': 'password123',
+                'resident001': 'password123'
+            };
+
+            if (validCredentials[usernameLower] === password) {
+                // Map username to user type / role
+                let userType = 'regular_resident';
+
+                if (['secretary', 'captain', 'tanod'].includes(usernameLower)) {
+                    userType = 'official';
+                } else if (usernameLower === 'head001') {
+                    userType = 'head_household';
+                } else if (usernameLower === 'resident001') {
+                    userType = 'regular_resident';
+                }
+
+                // Store user session
+                localStorage.setItem('userType', userType);
+                localStorage.setItem('username', username);
+                localStorage.setItem('isLoggedIn', 'true');
+
+                // Redirect to main system
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+
+        function showForgotPassword() {
+            alert('Please contact the barangay secretary for password reset assistance.');
+        }
+
+        // Auto-fill demo credentials on click
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'P' && e.target.textContent.includes('/')) {
+                const credentials = e.target.textContent.split('/');
+                const username = credentials[0].split(':')[1].trim();
+                const password = credentials[1].trim();
+                
+                document.getElementById('username').value = username;
+                document.getElementById('password').value = password;
+            }
+        });
+    </script>
+</body>
+</html>

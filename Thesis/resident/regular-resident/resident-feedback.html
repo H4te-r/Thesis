@@ -1,0 +1,604 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback & Suggestions - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <style>
+			/* Default: background image for desktop */
+			body {
+				background: url('../assets/copy.png') no-repeat center center fixed;
+				background-size: cover;
+			}
+
+			/* Mobile view: solid green background */
+			@media (max-width: 768px) {
+				body {
+					background: #0f5e1a !important;
+					background-image: none !important;
+				}
+			}
+	</style>
+</head>
+<body class="bg-[url(\"../assets/copy.png\")] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between py-3">
+					<!-- LEFT SIDE: LOGO + TITLE -->
+					<div class="flex items-center space-x-3">
+						<div class="w-12 h-12 rounded-full overflow-hidden">
+							<img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-full h-full object-cover">
+						</div>
+						<div class="flex flex-col leading-tight">
+							<span class="text-lg font-bold">Barangay Central</span>
+							<span class="text-sm opacity-90">Resident Portal</span>
+						</div>
+					</div>
+					<!-- RIGHT SIDE: PROFILE + HAMBURGER -->
+					<div class="flex items-center space-x-3">
+						<!-- PROFILE INFO -->
+						<div class="flex flex-col text-right leading-tight">
+							<span class="text-sm font-semibold">Juan Dela Cruz</span>
+							<span class="text-xs opacity-80">Regular Resident</span>
+						</div>
+						<!-- MENU BUTTON -->
+						<button id="menu-toggle" class="text-white hover:text-white focus:outline-none">
+							<i class="fas fa-bars text-2xl"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- SIDE MENU -->
+		<div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-[#15803d] text-white transform -translate-x-full transition-transform duration-300 z-50">
+			<div class="p-4 flex justify-between items-center border-b border-white/20">
+				<h2 class="text-lg font-bold">Menu</h2>
+				<button id="close-menu">
+					<i class="fas fa-times text-xl"></i>
+				</button>
+			</div>
+			<div class="mt-4 flex flex-col space-y-2 px-4">
+				<a href="resident-dashboard.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-home"></i>
+					<span>Dashboard</span>
+				</a>
+				<a href="resident-household.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-users"></i>
+					<span>Household</span>
+				</a>
+				<a href="resident-certificates.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-certificate"></i>
+					<span>Certificates</span>
+				</a>
+				<a href="resident-services.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-tools"></i>
+					<span>Services</span>
+				</a>
+				<a href="resident-complaints.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-comment-dots"></i>
+					<span>Complaints</span>
+				</a>
+				<!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-file-alt"></i>
+					<span>Blotter</span>
+				</a> -->
+				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-star"></i>
+					<span>Feedback</span>
+				</a>
+				<a href="resident-announcements.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-bullhorn"></i>
+					<span>Announcements</span>
+				</a>
+				<a href="resident-reports.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-chart-bar"></i>
+					<span>Reports</span>
+				</a>
+				<a href="resident-settings.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-cog"></i>
+					<span>Settings</span>
+				</a>
+				<a href="resident-profile.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-user"></i>
+					<span>Profile</span>
+				</a>
+				<div class="pt-4 mt-4 border-t border-white/20">
+					<button onclick="window.location.href='../public/login.html'" class="flex items-center space-x-2 py-2 w-full rounded hover:bg-white/20">
+						<i class="fas fa-sign-out-alt"></i>
+						<span>Logout</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- OVERLAY -->
+		<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+		<script>
+			const menu = document.getElementById('side-menu');
+			const overlay = document.getElementById('overlay');
+			const openBtn = document.getElementById('menu-toggle');
+			const closeBtn = document.getElementById('close-menu');
+			openBtn.addEventListener('click', () => {
+				menu.classList.remove('-translate-x-full');
+				overlay.classList.remove('hidden');
+			});
+			closeBtn.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+			overlay.addEventListener('click', () => {
+				menu.classList.add('-translate-x-full');
+				overlay.classList.add('hidden');
+			});
+		</script>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16 mt-20">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-white">Feedback & Suggestions</h1>
+                <p class="text-white mt-2">Help us improve our services by sharing your feedback</p>
+            </div>
+            <button class="bg-barangay-green text-white px-6 py-4 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center justify-center space-x-2">
+                <i class="fas fa-plus"></i>
+                <span>Submit Feedback</span>
+            </button>
+
+        </div>
+
+        <!-- Feedback Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-thumbs-up text-3xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Service Feedback</h3>
+                <p class="text-gray-600 mb-4 text-sm">Rate and comment on our services</p>
+                <button class="border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors duration-300">
+                    Give Feedback
+                </button>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-lightbulb text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Suggestions</h3>
+                <p class="text-gray-600 mb-4 text-sm">Share ideas for improvement</p>
+                <button class="border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                    Make Suggestion
+                </button>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-heart text-3xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Appreciation</h3>
+                <p class="text-gray-600 mb-4 text-sm">Thank our barangay officials</p>
+                <button class="border-2 border-purple-600 text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                    Show Appreciation
+                </button>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-star text-3xl text-orange-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Rating</h3>
+                <p class="text-gray-600 mb-4 text-sm">Rate our overall performance</p>
+                <button class="border-2 border-orange-600 text-orange-600 px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition-colors duration-300">
+                    Rate Us
+                </button>
+            </div>
+        </div>
+
+        <!-- My Feedback History -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-barangay-green">My Feedback History</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-barangay-green text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Date</th>
+                            <th class="px-6 py-4 text-left font-semibold">Type</th>
+                            <th class="px-6 py-4 text-left font-semibold">Subject</th>
+                            <th class="px-6 py-4 text-left font-semibold">Rating</th>
+                            <th class="px-6 py-4 text-left font-semibold">Status</th>
+                            <th class="px-6 py-4 text-left font-semibold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">Jan 10, 2024</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Service Feedback</span>
+                            </td>
+                            <td class="px-6 py-4">Great Certificate Service</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Acknowledged</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">Jan 8, 2024</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">Suggestion</span>
+                            </td>
+                            <td class="px-6 py-4">Install More Street Lights</td>
+                            <td class="px-6 py-4">-</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded-full">Under Review</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">Jan 5, 2024</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">Appreciation</span>
+                            </td>
+                            <td class="px-6 py-4">Thank You to Secretary</td>
+                            <td class="px-6 py-4">-</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Acknowledged</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">Jan 3, 2024</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Rating</span>
+                            </td>
+                            <td class="px-6 py-4">Overall Barangay Rating</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="far fa-star text-white"></i>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Acknowledged</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Feedback Statistics -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- My Feedback Summary -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-barangay-green mb-6">My Feedback Summary</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 bg-green-500 rounded"></div>
+                            <span class="text-gray-700">Service Feedback</span>
+                        </div>
+                        <span class="font-semibold text-barangay-green">2</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 50%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 bg-blue-500 rounded"></div>
+                            <span class="text-gray-700">Suggestions</span>
+                        </div>
+                        <span class="font-semibold text-barangay-green">1</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 25%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 bg-purple-500 rounded"></div>
+                            <span class="text-gray-700">Appreciation</span>
+                        </div>
+                        <span class="font-semibold text-barangay-green">1</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-purple-500 h-2 rounded-full" style="width: 25%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Responses -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-barangay-green mb-6">Recent Responses</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-green-500 bg-green-50 p-4 rounded-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold text-gray-800">Service Feedback Response</h3>
+                            <span class="text-sm text-gray-500">Jan 11, 2024</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-2">Thank you for your positive feedback! We're glad to hear that our certificate service met your expectations.</p>
+                        <div class="text-sm text-gray-600">
+                            <strong>Responded by:</strong> Secretary Noela V. Impreso
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold text-gray-800">Suggestion Acknowledgment</h3>
+                            <span class="text-sm text-gray-500">Jan 9, 2024</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-2">Your suggestion about installing more street lights is being reviewed by our infrastructure committee.</p>
+                        <div class="text-sm text-gray-600">
+                            <strong>Responded by:</strong> Kagawad Juan Santos
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white w-full max-w-lg mx-4 rounded-xl shadow-2xl p-8 relative">
+        <!-- Close button -->
+        <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-barangay-green">
+        <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <!-- Modal Header -->
+        <h2 class="text-2xl font-bold text-barangay-green mb-6 text-center">Submit Feedback</h2>
+
+        <!-- Feedback Form -->
+        <form id="feedbackForm" class="space-y-4">
+        <!-- Name -->
+        <div>
+            <label for="feedbackName" class="block text-sm font-semibold text-gray-700 mb-2">Your Name *</label>
+            <input type="text" id="feedbackName" name="feedbackName" required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-barangay-green focus:border-transparent"
+            placeholder="Enter your full name">
+        </div>
+
+        <!-- Type -->
+        <div>
+            <label for="feedbackType" class="block text-sm font-semibold text-gray-700 mb-2">Feedback Type *</label>
+            <select id="feedbackType" name="feedbackType" required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-barangay-green focus:border-transparent">
+            <option value="">Select Type</option>
+            <option value="service">Service Feedback</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="appreciation">Appreciation</option>
+            <option value="rating">Rating</option>
+            </select>
+        </div>
+
+        <!-- Rating -->
+        <div id="ratingField">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Rate Our Service *</label>
+            <div class="flex justify-center space-x-2 text-yellow-400 text-3xl" id="starRating">
+            <i class="far fa-star cursor-pointer" data-value="1"></i>
+            <i class="far fa-star cursor-pointer" data-value="2"></i>
+            <i class="far fa-star cursor-pointer" data-value="3"></i>
+            <i class="far fa-star cursor-pointer" data-value="4"></i>
+            <i class="far fa-star cursor-pointer" data-value="5"></i>
+            </div>
+            <input type="hidden" id="ratingValue" name="ratingValue" required>
+        </div>
+
+        <!-- Subject -->
+        <div>
+            <label for="feedbackSubject" class="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
+            <input type="text" id="feedbackSubject" name="feedbackSubject" required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-barangay-green focus:border-transparent"
+            placeholder="Enter subject or short title">
+        </div>
+
+        <!-- Message -->
+        <div>
+            <label for="feedbackMessage" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+            <textarea id="feedbackMessage" name="feedbackMessage" rows="4" required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-barangay-green focus:border-transparent"
+            placeholder="Write your feedback here..."></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center pt-4">
+            <button type="submit"
+            class="bg-barangay-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300">
+            Submit Feedback
+            </button>
+        </div>
+        </form>
+    </div>
+    </div>
+
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">District IV, Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2025 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+  const feedbackModal = document.getElementById('feedbackModal');
+  const openFeedbackBtn = document.querySelector('button.bg-barangay-green'); // main open button
+  const closeModal = document.getElementById('closeModal');
+
+  // Open modal
+  openFeedbackBtn.addEventListener('click', () => {
+    feedbackModal.classList.remove('hidden');
+    feedbackModal.classList.add('flex');
+  });
+
+  // Close modal
+  closeModal.addEventListener('click', () => {
+    feedbackModal.classList.add('hidden');
+    feedbackModal.classList.remove('flex');
+  });
+
+  // Close when clicking outside modal
+  feedbackModal.addEventListener('click', (e) => {
+    if (e.target === feedbackModal) {
+      feedbackModal.classList.add('hidden');
+      feedbackModal.classList.remove('flex');
+    }
+  });
+
+  // Star rating logic
+  const stars = document.querySelectorAll('#starRating i');
+  const ratingInput = document.getElementById('ratingValue');
+
+  stars.forEach(star => {
+    star.addEventListener('mouseenter', () => {
+      const value = parseInt(star.getAttribute('data-value'));
+      stars.forEach((s, i) => {
+        if (i < value) s.classList.replace('far', 'fas');
+        else s.classList.replace('fas', 'far');
+      });
+    });
+    star.addEventListener('click', () => {
+      ratingInput.value = star.getAttribute('data-value');
+    });
+    star.addEventListener('mouseleave', () => {
+      const savedValue = parseInt(ratingInput.value) || 0;
+      stars.forEach((s, i) => {
+        if (i < savedValue) s.classList.replace('far', 'fas');
+        else s.classList.replace('fas', 'far');
+      });
+    });
+  });
+
+  // Handle form submission (demo only)
+  document.getElementById('feedbackForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const rating = ratingInput.value || "N/A";
+    alert(`Thank you for your feedback!\n\nYour Rating: ${rating} ★`);
+    feedbackModal.classList.add('hidden');
+    feedbackModal.classList.remove('flex');
+    e.target.reset();
+    stars.forEach(s => s.classList.replace('fas', 'far'));
+  });
+</script>
+
+</body>
+</html>

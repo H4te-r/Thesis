@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Captain Dashboard - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <!-- LOGO AREA - Replace with actual logo -->
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <!-- Fallback icon if no logo -->
+                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Barangay Central</h1>
+                        <p class="text-sm opacity-90">Captain's Dashboard</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="captain-dashboard.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="captain-user-management.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/users-icon.png" alt="Users" class="w-5 h-5">
+                        <span>User Management</span>
+                    </a>
+                    <a href="captain-resident-records.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/records-icon.png" alt="Records" class="w-5 h-5">
+                        <span>Resident Records</span>
+                    </a>
+                    <a href="captain-certificate-management.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/certificates-icon.png" alt="Certificates" class="w-5 h-5">
+                        <span>Certificates</span>
+                    </a>
+                    <a href="captain-complaint-management.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/complaints-icon.png" alt="Complaints" class="w-5 h-5">
+                        <span>Complaints</span>
+                    </a>
+                    <a href="captain-service-management.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/services-icon.png" alt="Services" class="w-5 h-5">
+                        <span>Services</span>
+                    </a>
+                    <a href="captain-announcements.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <span>Announcements</span>
+                    </a>
+                    <a href="captain-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <span>Reports</span>
+                    </a>
+                    <a href="captain-settings.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
+                        <img src="path/to/your/settings-icon.png" alt="Settings" class="w-5 h-5">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <div class="text-sm font-semibold">Captain Maria Santos</div>
+                        <div class="text-xs opacity-80">Barangay Captain</div>
+                    </div>
+                    <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
+                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16">
+        <!-- Dashboard Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-barangay-green">Captain's Dashboard</h1>
+                <p class="text-gray-600 mt-2">Complete system overview and management panel</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="text-right">
+                    <div class="text-sm text-gray-600">Last Login</div>
+                    <div class="text-sm font-semibold text-barangay-green">Jan 15, 2024 8:30 AM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-users text-2xl text-blue-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">2,847</h3>
+                    <p class="text-gray-600 mb-1">Total Residents</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-green-100 text-green-800">Active</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-certificate text-2xl text-yellow-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">156</h3>
+                    <p class="text-gray-600 mb-1">Pending Certificates</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-yellow-100 text-yellow-800">Review</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-comment-dots text-2xl text-red-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">23</h3>
+                    <p class="text-gray-600 mb-1">Active Complaints</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-red-100 text-red-800">Urgent</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-tools text-2xl text-green-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-barangay-green">89</h3>
+                    <p class="text-gray-600 mb-1">Service Requests</p>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-green-100 text-green-800">In Progress</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold text-barangay-green mb-6">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <a href="captain-users.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fas fa-users-cog text-3xl text-barangay-green"></i>
+                    <span class="font-medium text-gray-700">Manage Users</span>
+                </a>
+                <a href="captain-certificates.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fas fa-certificate text-3xl text-barangay-green"></i>
+                    <span class="font-medium text-gray-700">Approve Certificates</span>
+                </a>
+                <a href="captain-complaints.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fas fa-comment-dots text-3xl text-barangay-green"></i>
+                    <span class="font-medium text-gray-700">Review Complaints</span>
+                </a>
+                <a href="captain-announcements.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fas fa-bullhorn text-3xl text-barangay-green"></i>
+                    <span class="font-medium text-gray-700">Create Announcement</span>
+                </a>
+                <a href="captain-reports.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
+                    <i class="fas fa-chart-bar text-3xl text-barangay-green"></i>
+                    <span class="font-medium text-gray-700">Generate Reports</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Activities & Alerts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Recent Activities -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-barangay-green mb-6">Recent Activities</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="w-10 h-10 bg-barangay-green text-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">New Resident Registered</h4>
+                            <p class="text-gray-600 text-sm">Maria Garcia - 123 Santos Street</p>
+                        </div>
+                        <span class="text-xs text-gray-500">2 hours ago</span>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="w-10 h-10 bg-barangay-green text-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">Certificate Approved</h4>
+                            <p class="text-gray-600 text-sm">Barangay Clearance for Juan Dela Cruz</p>
+                        </div>
+                        <span class="text-xs text-gray-500">4 hours ago</span>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="w-10 h-10 bg-barangay-green text-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">Complaint Resolved</h4>
+                            <p class="text-gray-600 text-sm">Noise complaint from Matino Street</p>
+                        </div>
+                        <span class="text-xs text-gray-500">6 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Alerts -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-barangay-green mb-6">System Alerts</h2>
+                <div class="space-y-4">
+                    <div class="border border-red-200 bg-red-50 rounded-lg p-4">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fas fa-exclamation-triangle text-red-600"></i>
+                            <h3 class="font-semibold text-red-800">High Priority Complaint</h3>
+                        </div>
+                        <p class="text-red-700 text-sm">Security incident reported at Santos Street - requires immediate attention</p>
+                        <span class="text-xs text-red-600">1 hour ago</span>
+                    </div>
+                    <div class="border border-yellow-200 bg-yellow-50 rounded-lg p-4">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fas fa-clock text-yellow-600"></i>
+                            <h3 class="font-semibold text-yellow-800">Pending Certificate</h3>
+                        </div>
+                        <p class="text-yellow-700 text-sm">15 certificates pending approval for more than 3 days</p>
+                        <span class="text-xs text-yellow-600">3 hours ago</span>
+                    </div>
+                    <div class="border border-blue-200 bg-blue-50 rounded-lg p-4">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fas fa-info-circle text-blue-600"></i>
+                            <h3 class="font-semibold text-blue-800">System Update</h3>
+                        </div>
+                        <p class="text-blue-700 text-sm">New features available in the reporting module</p>
+                        <span class="text-xs text-blue-600">1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Overview Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Monthly Statistics -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-barangay-green mb-6">Monthly Statistics</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 bg-blue-500 rounded"></div>
+                            <span class="text-gray-700">New Residents</span>
+                        </div>
+                        <span class="font-semibold text-barangay-green">47</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 78%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 bg-green-500 rounded"></div>
+                            <span class="text-gray-700">Certificates Issued</span>
+                        </div>
+                        <span class="font-semibold text-barangay-green">234</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 92%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-4 h-4 bg-yellow-500 rounded"></div>
+                            <span class="text-gray-700">Complaints Resolved</span>
+                        </div>
+                        <span class="font-semibold text-barangay-green">89</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Announcements -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-barangay-green mb-6">Recent Announcements</h2>
+                <div class="space-y-4">
+                    <div class="border border-gray-200 bg-white rounded-lg p-4 hover:bg-barangay-green-bg transition-colors duration-300">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-semibold text-gray-800">Community Cleanup Drive</h3>
+                            <span class="px-3 py-1 bg-barangay-green-bg text-barangay-green text-xs font-semibold rounded-full">Normal</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Join us for monthly cleanup on January 25, 2024 at 6:00 AM</p>
+                        <span class="text-xs text-gray-500">January 14, 2024</span>
+                    </div>
+                    <div class="border border-red-200 bg-red-50 rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-semibold text-gray-800">Emergency: Road Closure</h3>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-semibold rounded-full">Urgent</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">Matino Street will be closed from Jan 16-20 for construction</p>
+                        <span class="text-xs text-gray-500">January 15, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2024 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

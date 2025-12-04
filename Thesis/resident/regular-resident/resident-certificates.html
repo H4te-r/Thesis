@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Requests - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+			/* Default: background image for desktop */
+			body {
+				background: url('../assets/bg.png') no-repeat center center fixed;
+				background-size: cover;
+			}
+
+			/* Mobile view: solid green background */
+			@media (max-width: 768px) {
+				body {
+					background: #0f5e1a !important;
+					background-image: none !important;
+				}
+			}
+	</style>
+</head>
+<body class="bg-[url(\"../assets/copy.png\")] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between py-3">
+					<!-- LEFT SIDE: LOGO + TITLE -->
+					<div class="flex items-center space-x-3">
+						<div class="w-12 h-12 rounded-full overflow-hidden">
+							<img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-full h-full object-cover">
+						</div>
+						<div class="flex flex-col leading-tight">
+							<span class="text-lg font-bold">Barangay Central</span>
+							<span class="text-sm opacity-90">Resident Portal</span>
+						</div>
+					</div>
+					<!-- RIGHT SIDE: PROFILE + HAMBURGER -->
+					<div class="flex items-center space-x-3">
+						<!-- PROFILE INFO -->
+						<div class="flex flex-col text-right leading-tight">
+							<span class="text-sm font-semibold">Juan Dela Cruz</span>
+							<span class="text-xs opacity-80">Regular Resident</span>
+						</div>
+						<!-- MENU BUTTON -->
+						<button id="menu-toggle" class="text-white hover:text-white focus:outline-none">
+							<i class="fas fa-bars text-2xl"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- SIDE MENU -->
+		<div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-[#15803d] text-white transform -translate-x-full transition-transform duration-300 z-50">
+			<div class="p-4 flex justify-between items-center border-b border-white/20">
+				<h2 class="text-lg font-bold">Menu</h2>
+				<button id="close-menu">
+					<i class="fas fa-times text-xl"></i>
+				</button>
+			</div>
+			<div class="mt-4 flex flex-col space-y-2 px-4">
+				<a href="resident-dashboard.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-home"></i>
+					<span>Dashboard</span>
+				</a>
+				<a href="resident-household.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-users"></i>
+					<span>Household</span>
+				</a>
+				<a href="resident-certificates.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-certificate"></i>
+					<span>Certificates</span>
+				</a>
+				<a href="resident-services.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-tools"></i>
+					<span>Services</span>
+				</a>
+				<a href="resident-complaints.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-comment-dots"></i>
+					<span>Complaints</span>
+				</a>
+				<!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-file-alt"></i>
+					<span>Blotter</span>
+				</a> -->
+				<a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-star"></i>
+					<span>Feedback</span>
+				</a>
+				<a href="resident-announcements.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-bullhorn"></i>
+					<span>Announcements</span>
+				</a>
+				<a href="resident-reports.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-chart-bar"></i>
+					<span>Reports</span>
+				</a>
+				<a href="resident-settings.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-cog"></i>
+					<span>Settings</span>
+				</a>
+				<a href="resident-profile.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-user"></i>
+					<span>Profile</span>
+				</a>
+				<div class="pt-4 mt-4 border-t border-white/20">
+					<button onclick="window.location.href='../public/login.html'" class="flex items-center space-x-2 py-2 w-full rounded hover:bg-white/20">
+						<i class="fas fa-sign-out-alt"></i>
+						<span>Logout</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- OVERLAY -->
+		<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16 mt-20">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-white">Certificate & Clearance Requests</h1>
+                <p class="text-white mt-2">Request certificates for yourself and household members</p>
+            </div>
+            <button id="open-modal" class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-2">
+                <i class="fas fa-plus"></i>
+                <span>Request Certificate</span>
+            </button>
+        </div>
+
+        <!-- Certificate Request Modal -->
+        <div id="certificate-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-barangay-green">Request a Certificate</h2>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 transition-colors duration-300">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <form class="p-6 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="certificate-type" class="block text-sm font-medium text-gray-700 mb-2">Certificate Type</label>
+                            <select id="certificate-type" name="certificate-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                                <option value="">Select Certificate Type</option>
+                                <option value="barangay-clearance">Barangay Clearance</option>
+                                <option value="certificate-residency">Certificate of Residency</option>
+                                <option value="certificate-indigency">Certificate of Indigency</option>
+                                <option value="certificate-good-moral">Certificate of Good Moral Character</option>
+                                <option value="certificate-no-derogatory">Certificate of No Derogatory Record</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="purpose" class="block text-sm font-medium text-gray-700 mb-2">Purpose</label>
+                            <textarea id="purpose" name="purpose" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Please specify the purpose of this certificate request"></textarea>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter full name">
+                        </div>
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                            <input type="text" id="address" name="address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter complete address">
+                        </div>
+                        <div>
+                            <label for="contact" class="block text-sm font-medium text-gray-700 mb-2">Contact Number</label>
+                            <input type="tel" id="contact" name="contact" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter contact number">
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" id="cancel-request" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-300">
+                            Cancel
+                        </button>
+                        <button type="submit" class="bg-barangay-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Submit Request</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Certificate Types -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Card Template -->
+            <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-barangay-green-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-certificate text-3xl text-barangay-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Barangay Clearance</h3>
+                <p class="text-gray-600 mb-4 text-sm">Issued for employment, licenses, and official transactions</p>
+                <button class="mt-auto border-2 border-barangay-green text-barangay-green px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green hover:text-white transition-colors duration-300">
+                    Request Certificate
+                </button>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-barangay-green-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-home text-3xl text-barangay-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Certificate of Residency</h3>
+                <p class="text-gray-600 mb-4 text-sm">Proof of residence in Barangay Central</p>
+                <button class="mt-auto border-2 border-barangay-green text-barangay-green px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green hover:text-white transition-colors duration-300">
+                    Request Certificate
+                </button>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-barangay-green-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-heart text-3xl text-barangay-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Certificate of Indigency</h3>
+                <p class="text-gray-600 mb-4 text-sm">For low-income families seeking assistance</p>
+                <button class="mt-auto border-2 border-barangay-green text-barangay-green px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green hover:text-white transition-colors duration-300">
+                    Request Certificate
+                </button>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-barangay-green-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-star text-3xl text-barangay-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Certificate of Good Moral Character</h3>
+                <p class="text-gray-600 mb-4 text-sm">Proof of good standing in the community</p>
+                <button class="mt-auto border-2 border-barangay-green text-barangay-green px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green hover:text-white transition-colors duration-300">
+                    Request Certificate
+                </button>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-barangay-green-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-3xl text-barangay-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Certificate of No Derogatory Record</h3>
+                <p class="text-gray-600 mb-4 text-sm">Certificate confirming no derogatory records in the barangay</p>
+                <button class="mt-auto border-2 border-barangay-green text-barangay-green px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green hover:text-white transition-colors duration-300">
+                    Request Certificate
+                </button>
+            </div>
+
+            <!-- ✅ Certificate of Building Permit -->
+            <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="w-20 h-20 bg-barangay-green-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-building text-3xl text-barangay-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-barangay-green mb-3">Certificate of Building Permit</h3>
+                <p class="text-gray-600 mb-4 text-sm">Authorization to construct, renovate, or repair structures within the barangay</p>
+                <button class="mt-auto border-2 border-barangay-green text-barangay-green px-4 py-2 rounded-lg font-semibold hover:bg-barangay-green hover:text-white transition-colors duration-300">
+                    Request Certificate
+                </button>
+            </div>
+        </div>
+
+        <!-- Certificate Requests Table -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-barangay-green">My Certificate Requests</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-barangay-green text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Request ID</th>
+                            <th class="px-6 py-4 text-left font-semibold">Certificate Type</th>
+                            <th class="px-6 py-4 text-left font-semibold">Requested For</th>
+                            <th class="px-6 py-4 text-left font-semibold">Purpose</th>
+                            <th class="px-6 py-4 text-left font-semibold">Date Requested</th>
+                            <th class="px-6 py-4 text-left font-semibold">Status</th>
+                            <th class="px-6 py-4 text-left font-semibold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">CR-0001</td>
+                            <td class="px-6 py-4">Barangay Clearance</td>
+                            <td class="px-6 py-4">Juan Dela Cruz</td>
+                            <td class="px-6 py-4">Employment Application</td>
+                            <td class="px-6 py-4">Jan 10, 2024</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Approved</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Download">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">CR-0002</td>
+                            <td class="px-6 py-4">Certificate of Residency</td>
+                            <td class="px-6 py-4">Maria Dela Cruz</td>
+                            <td class="px-6 py-4">School Enrollment</td>
+                            <td class="px-6 py-4">Jan 12, 2024</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded-full">Pending</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Cancel">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Issued Certificates Table -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-barangay-green">Issued Certificates</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-barangay-green text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Certificate No.</th>
+                            <th class="px-6 py-4 text-left font-semibold">Type</th>
+                            <th class="px-6 py-4 text-left font-semibold">Issued To</th>
+                            <th class="px-6 py-4 text-left font-semibold">Date Issued</th>
+                            <th class="px-6 py-4 text-left font-semibold">Issued By</th>
+                            <th class="px-6 py-4 text-left font-semibold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">BC-2024-001</td>
+                            <td class="px-6 py-4">Barangay Clearance</td>
+                            <td class="px-6 py-4">Juan Dela Cruz</td>
+                            <td class="px-6 py-4">Jan 15, 2024</td>
+                            <td class="px-6 py-4">Secretary Noela V. Impreso</td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Print">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Menu functionality
+        const menu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('menu-toggle');
+        const closeBtn = document.getElementById('close-menu');
+
+        openBtn.addEventListener('click', () => {
+            menu.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            menu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            menu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('certificate-modal');
+        const openModalBtn = document.getElementById('open-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const cancelBtn = document.getElementById('cancel-request');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+
+<!-- Footer -->
+<footer class="bg-barangay-green text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Barangay Central</h3>
+                        <p class="text-sm opacity-90">District IV, Quezon City</p>
+                    </div>
+                </div>
+                <p class="text-white mb-4">
+                    Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                    <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                    <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                    <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                    <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                    <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                    <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                    <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white mt-8 pt-8 text-center">
+            <p class="text-white">
+                &copy; 2025 Barangay Central E-Government System. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

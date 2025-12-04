@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Household Management - Barangay Central</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'barangay-green': '#0f5e1a',
+                        'barangay-green-light': '#1a7d2e',
+                        'barangay-green-bg': '#f0f9f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Default: background image for desktop */
+        			body {
+        				background: url('../assets/copy.png') no-repeat center center fixed;
+        				background-size: cover;
+        			}
+        
+        			/* Mobile view: solid green background */
+        			@media (max-width: 768px) {
+        				body {
+        					background: #0f5e1a !important;
+        					background-image: none !important;
+        				}
+        		  	}
+    </style>
+</head>
+
+<body class="bg-[url(\"../assets/copy.png\")] bg-cover bg-fixed bg-center min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#0f5e1a]/90 to-[#15803d]/90 backdrop-blur-md text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-3">
+                <!-- LEFT SIDE: LOGO + TITLE -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col leading-tight">
+                        <span class="text-lg font-bold">Barangay Central</span>
+                        <span class="text-sm opacity-90">Resident Portal</span>
+                    </div>
+                </div>
+                <!-- RIGHT SIDE: PROFILE + HAMBURGER -->
+                <div class="flex items-center space-x-3">
+                    <!-- PROFILE INFO -->
+                    <div class="flex flex-col text-right leading-tight">
+                        <span class="text-sm font-semibold">Juan Dela Cruz</span>
+                        <span class="text-xs opacity-80">Head of Household</span>
+                    </div>
+                    <!-- MENU BUTTON -->
+                    <button id="menu-toggle" class="text-white hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- SIDE MENU -->
+    <div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-[#15803d] text-white transform -translate-x-full transition-transform duration-300 z-50">
+        <div class="p-4 flex justify-between items-center border-b border-white/20">
+            <h2 class="text-lg font-bold">Menu</h2>
+            <button id="close-menu">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <div class="mt-4 flex flex-col space-y-2 px-4">
+            <a href="resident-dashboard.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="resident-household.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-users"></i>
+                <span>Household</span>
+            </a>
+            <a href="resident-certificates.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </a>
+            <a href="resident-services.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-tools"></i>
+                <span>Services</span>
+            </a>
+            <a href="resident-complaints.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-comment-dots"></i>
+                <span>Complaints</span>
+            </a>
+            <!-- <a href="resident-blotter.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+					<i class="fas fa-file-alt"></i>
+					<span>Blotter</span>
+				</a> -->
+            <a href="resident-feedback.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-star"></i>
+                <span>Feedback</span>
+            </a>
+            <a href="resident-announcements.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+            <a href="resident-reports.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+            <a href="resident-settings.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="resident-profile.html" class="flex items-center space-x-2 py-2 rounded hover:bg-white/20">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+            <div class="pt-4 mt-4 border-t border-white/20">
+                <button onclick="window.location.href='../public/login.html'" class="flex items-center space-x-2 py-2 w-full rounded hover:bg-white/20">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- OVERLAY -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-16 mt-20">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+            <div>
+                <h1 class="text-3xl font-bold text-white">Household Management</h1>
+                <p class="text-white mt-2">Manage household members and family records</p>
+            </div>
+            <button id="open-add-member-modal" class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-2">
+                <i class="fas fa-plus"></i>
+                <span>Add Member</span>
+            </button>
+        </div>
+
+        <!-- Household Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-barangay-green">5</h3>
+                <p class="text-gray-600">Total Members</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-user-check text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-barangay-green">3</h3>
+                <p class="text-gray-600">Adults</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-child text-2xl text-yellow-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-barangay-green">2</h3>
+                <p class="text-gray-600">Minors</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-home text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-barangay-green">1</h3>
+                <p class="text-gray-600">Household</p>
+            </div>
+        </div>
+
+        <!-- Add Member Modal -->
+        <div id="add-member-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-barangay-green">Add Household Member</h2>
+                    <button id="close-add-member-modal" class="text-gray-400 hover:text-gray-600 transition-colors duration-300">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <form class="p-6 space-y-6">
+
+                    <!-- House Number -->
+                    <div>
+                        <label for="house-number" class="block text-sm font-medium text-gray-700 mb-2">House Number</label>
+                        <input type="text" id="house-number" name="house-number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter house number">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" id="first-name" name="first-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter first name">
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter last name">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="middle-name" class="block text-sm font-medium text-gray-700 mb-2">Middle Name</label>
+                            <input type="text" id="middle-name" name="middle-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter middle name (optional)">
+                        </div>
+                        <div>
+                            <label for="relationship" class="block text-sm font-medium text-gray-700 mb-2">Relationship</label>
+                            <select id="relationship" name="relationship" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                                <option value="">Select Relationship</option>
+                                <option value="spouse">Spouse</option>
+                                <option value="child">Child</option>
+                                <option value="parent">Parent</option>
+                                <option value="sibling">Sibling</option>
+                                <option value="grandparent">Grandparent</option>
+                                <option value="grandchild">Grandchild</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="birthdate" class="block text-sm font-medium text-gray-700 mb-2">Birth Date</label>
+                            <input type="date" id="birthdate" name="birthdate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                        </div>
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                            <select id="gender" name="gender" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="civil-status" class="block text-sm font-medium text-gray-700 mb-2">Civil Status</label>
+                            <select id="civil-status" name="civil-status" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                                <option value="">Select Status</option>
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="widowed">Widowed</option>
+                                <option value="divorced">Divorced</option>
+                                <option value="separated">Separated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="educational-attainment" class="block text-sm font-medium text-gray-700 mb-2">Educational Attainment</label>
+                            <select id="educational-attainment" name="educational-attainment" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                                <option value="">Select Educational Attainment</option>
+                                <option value="none">No Formal Education</option>
+                                <option value="elementary">Elementary</option>
+                                <option value="high-school">High School</option>
+                                <option value="vocational">Vocational/Technical</option>
+                                <option value="college">College</option>
+                                <option value="post-graduate">Post Graduate</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="employment-status" class="block text-sm font-medium text-gray-700 mb-2">Employment Status</label>
+                            <select id="employment-status" name="employment-status" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300">
+                                <option value="">Select Employment Status</option>
+                                <option value="unemployed">Unemployed</option>
+                                <option value="student">Student</option>
+                                <option value="employed">Employed</option>
+                                <option value="self-employed">Self-Employed</option>
+                                <option value="retired">Retired</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Conditional Occupation Type Field -->
+                    <div id="occupation-details" class="hidden">
+                        <label for="occupation-type" class="block text-sm font-medium text-gray-700 mb-2">Type of Work / Occupation</label>
+                        <input type="text" id="occupation-type" name="occupation-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter type of work (e.g., Teacher, Driver, Nurse)">
+                    </div>
+
+                    <div>
+                        <label for="monthly-income" class="block text-sm font-medium text-gray-700 mb-2">Monthly Income (₱)</label>
+                        <input type="number" id="monthly-income" name="monthly-income" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-barangay-green focus:border-transparent transition-colors duration-300" placeholder="Enter monthly income" min="0" step="0.01">
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" id="cancel-add-member" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-300">
+                            Cancel
+                        </button>
+                        <button type="submit" class="bg-barangay-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-2">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Member</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- JS for Conditional Display -->
+        <script>
+            const employmentStatus = document.getElementById('employment-status');
+            const occupationDetails = document.getElementById('occupation-details');
+            const monthlyIncome = document.getElementById('monthly-income');
+
+            employmentStatus.addEventListener('change', function() {
+                // Show occupation details if employed/self-employed
+                if (this.value === 'employed' || this.value === 'self-employed') {
+                    occupationDetails.classList.remove('hidden');
+                    monthlyIncome.disabled = false;
+                    monthlyIncome.classList.remove('bg-gray-100', 'cursor-not-allowed');
+                } 
+                // Disable income if student
+                else if (this.value === 'student') {
+                    occupationDetails.classList.add('hidden');
+                    monthlyIncome.value = '';
+                    monthlyIncome.disabled = true;
+                    monthlyIncome.classList.add('bg-gray-100', 'cursor-not-allowed');
+                } 
+                // Default: enable income and hide occupation
+                else {
+                    occupationDetails.classList.add('hidden');
+                    monthlyIncome.disabled = false;
+                    monthlyIncome.classList.remove('bg-gray-100', 'cursor-not-allowed');
+                }
+            });
+        </script>
+
+        <!-- Household Members Table -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-barangay-green">Household Members</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-barangay-green text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Name</th>
+                            <th class="px-6 py-4 text-left font-semibold">Relationship</th>
+                            <th class="px-6 py-4 text-left font-semibold">Age</th>
+                            <th class="px-6 py-4 text-left font-semibold">Occupation</th>
+                            <th class="px-6 py-4 text-left font-semibold">Monthly Income</th>
+                            <th class="px-6 py-4 text-left font-semibold">Status</th>
+                            <th class="px-6 py-4 text-left font-semibold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Juan Dela Cruz</div>
+                                        <div class="text-sm text-gray-600">Regular Resident</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">Head</td>
+                            <td class="px-6 py-4">45</td>
+                            <td class="px-6 py-4">Driver</td>
+                            <td class="px-6 py-4">₱15,000</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Maria Dela Cruz</div>
+                                        <div class="text-sm text-gray-600">Spouse</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">Spouse</td>
+                            <td class="px-6 py-4">42</td>
+                            <td class="px-6 py-4">Teacher</td>
+                            <td class="px-6 py-4">₱12,000</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Pedro Dela Cruz</div>
+                                        <div class="text-sm text-gray-600">Son</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">Child</td>
+                            <td class="px-6 py-4">18</td>
+                            <td class="px-6 py-4">Student</td>
+                            <td class="px-6 py-4">₱0</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Ana Dela Cruz</div>
+                                        <div class="text-sm text-gray-600">Daughter</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">Child</td>
+                            <td class="px-6 py-4">16</td>
+                            <td class="px-6 py-4">Student</td>
+                            <td class="px-6 py-4">₱0</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-barangay-green-bg transition-colors duration-300">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Rosa Dela Cruz</div>
+                                        <div class="text-sm text-gray-600">Mother</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">Parent</td>
+                            <td class="px-6 py-4">68</td>
+                            <td class="px-6 py-4">Retired</td>
+                            <td class="px-6 py-4">₱5,000</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Household Information and Activities -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Household Details -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-barangay-green mb-6">Household Information</h2>
+            <div class="space-y-4">
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-semibold text-gray-700">Household ID:</span>
+                <span class="text-gray-600">HH-2024-001</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-semibold text-gray-700">Address:</span>
+                <span class="text-gray-600">123 Matino Street, Barangay Central</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-semibold text-gray-700">Date Established:</span>
+                <span class="text-gray-600">January 15, 2020</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-semibold text-gray-700">Regular Resident:</span>
+                <span class="text-gray-600">Juan Dela Cruz</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-semibold text-gray-700">Total Members:</span>
+                <span class="text-gray-600">5</span>
+            </div>
+            <div class="flex justify-between items-center py-3">
+                <span class="font-semibold text-gray-700">Status:</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Active</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- Recent Household Activities -->
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-barangay-green mb-6">Recent Household Activities</h2>
+            <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left border border-gray-200 rounded-lg">
+                <thead class="bg-barangay-green text-white">
+                <tr>
+                    <th class="px-6 py-3 font-semibold">Date</th>
+                    <th class="px-6 py-3 font-semibold">Activity</th>
+                    <th class="px-6 py-3 font-semibold">Details</th>
+                </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white">
+                <tr>
+                    <td class="px-6 py-4">Oct 10, 2025</td>
+                    <td class="px-6 py-4">Blotter Filed</td>
+                    <td class="px-6 py-4">Reported minor disturbance in Zone 4</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4">Oct 8, 2025</td>
+                    <td class="px-6 py-4">Request</td>
+                    <td class="px-6 py-4">Requested Barangay Clearance</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4">Oct 5, 2025</td>
+                    <td class="px-6 py-4">Profile Update</td>
+                    <td class="px-6 py-4">Updated household member info</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script>
+        // Menu functionality
+        const menu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('menu-toggle');
+        const closeBtn = document.getElementById('close-menu');
+
+        openBtn.addEventListener('click', () => {
+            menu.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            menu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            menu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Add member modal functionality
+        const addMemberModal = document.getElementById('add-member-modal');
+        const openAddMemberModalBtn = document.getElementById('open-add-member-modal');
+        const closeAddMemberModalBtn = document.getElementById('close-add-member-modal');
+        const cancelAddMemberBtn = document.getElementById('cancel-add-member');
+
+        openAddMemberModalBtn.addEventListener('click', () => {
+            addMemberModal.classList.remove('hidden');
+        });
+
+        closeAddMemberModalBtn.addEventListener('click', () => {
+            addMemberModal.classList.add('hidden');
+        });
+
+        cancelAddMemberBtn.addEventListener('click', () => {
+            addMemberModal.classList.add('hidden');
+        });
+
+        addMemberModal.addEventListener('click', (e) => {
+            if (e.target === addMemberModal) {
+                addMemberModal.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-barangay-green text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Barangay Central</h3>
+                            <p class="text-sm opacity-90">District IV, Quezon City</p>
+                        </div>
+                    </div>
+                    <p class="text-white mb-4">
+                        Committed to providing efficient and accessible government services to our residents through innovative digital solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-white transition-colors duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../public/index.html#home" class="text-white hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="../public/about.html" class="text-white hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="../public/index.html#services" class="text-white hover:text-white transition-colors duration-300">Services</a></li>
+                        <li><a href="../public/announcements-public.html" class="text-white hover:text-white transition-colors duration-300">Announcements</a></li>
+                        <li><a href="../public/index.html#contact" class="text-white hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Certificate Requests</a></li>
+                        <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Service Requests</a></li>
+                        <li><a href="../public/complaint-non-resident.html" class="text-white hover:text-white transition-colors duration-300">File Complaint</a></li>
+                        <li><a href="../public/track-complaint.html" class="text-white hover:text-white transition-colors duration-300">Track Complaint</a></li>
+                        <li><a href="../public/login.html" class="text-white hover:text-white transition-colors duration-300">Resident Portal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white mt-8 pt-8 text-center">
+                <p class="text-white">
+                    &copy; 2025 Barangay Central E-Government System. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
