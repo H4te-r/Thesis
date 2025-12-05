@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+<body class="bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,9 +28,9 @@
                 <div class="flex items-center space-x-4">
                     <!-- LOGO AREA - Replace with actual logo -->
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                         <!-- Fallback icon if no logo -->
-                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                        
                     </div>
                     <div>
                         <h1 class="text-xl font-bold">Barangay Central</h1>
@@ -39,32 +39,32 @@
                 </div>
                 <!-- Mobile menu button -->
                 <button class="md:hidden text-white hover:text-white focus:outline-none" id="mobile-menu-button">
-                    <img src="path/to/your/menu-icon.png" alt="Menu" class="w-6 h-6">
+                    <i class="fas fa-bars"></i>
                 </button>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-6">
                     <a href="treasurer-dashboard.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
                     <a href="treasurer-certificate-payments.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/payments-icon.png" alt="Payments" class="w-5 h-5">
+                        <i class="fas fa-money-bill-wave"></i>
                         <span>Certificate Payments</span>
                     </a>
                     <a href="treasurer-financial-records.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/financial-icon.png" alt="Financial" class="w-5 h-5">
+                        <i class="fas fa-chart-line"></i>
                         <span>Financial Records</span>
                     </a>
                     <a href="treasurer-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <i class="fas fa-chart-bar"></i>
                         <span>Reports</span>
                     </a>
                     <a href="treasurer-announcements.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <i class="fas fa-bullhorn"></i>
                         <span>Announcements</span>
                     </a>
                     <a href="treasurer-settings.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/settings-icon.png" alt="Settings" class="w-5 h-5">
+                        <i class="fas fa-cog"></i>
                         <span>Settings</span>
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="text-xs opacity-80">Barangay Treasurer</div>
                     </div>
                     <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
-                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                        <i class="fas fa-sign-out-alt text-xl"></i>
                     </button>
                 </div>
             </div>
@@ -102,7 +102,7 @@
             </div>
             <div class="flex space-x-4">
                 <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center space-x-2">
-                    <img src="path/to/your/export-icon.png" alt="Export" class="w-5 h-5">
+                    <i class="fas fa-download"></i>
                     <span>Export</span>
                 </button>
             </div>
@@ -112,28 +112,28 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/payments-icon.png" alt="Payments" class="w-8 h-8">
+                    <i class="fas fa-money-bill-wave"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">156</h3>
                 <p class="text-gray-600">Total Payments</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/pending-icon.png" alt="Pending" class="w-8 h-8">
+                    <i class="fas fa-clock"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">23</h3>
                 <p class="text-gray-600">Pending Verification</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/verified-icon.png" alt="Verified" class="w-8 h-8">
+                    <i class="fas fa-check-circle"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">118</h3>
                 <p class="text-gray-600">Verified</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/rejected-icon.png" alt="Rejected" class="w-8 h-8">
+                    <i class="fas fa-times-circle"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">15</h3>
                 <p class="text-gray-600">Rejected</p>
@@ -185,7 +185,7 @@
                             <td class="px-6 py-4">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <img src="path/to/your/user-avatar.png" alt="Avatar" class="w-10 h-10 rounded-full object-cover">
+                                        <i class="fas fa-user-circle"></i>
                                     </div>
                                     <div>
                                         <div class="font-semibold text-gray-800">Juan Dela Cruz</div>
@@ -204,13 +204,13 @@
                             <td class="px-6 py-4">
                                 <div class="flex space-x-2">
                                     <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                                        <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                                        <i class="fas fa-eye"></i>
                                     </button>
                                     <button class="p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-300" title="Verify">
-                                        <img src="path/to/your/verify-icon.png" alt="Verify" class="w-4 h-4">
+                                        <i class="fas fa-check"></i>
                                     </button>
                                     <button class="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Reject">
-                                        <img src="path/to/your/reject-icon.png" alt="Reject" class="w-4 h-4">
+                                        <i class="fas fa-times"></i>
                                     </button>
                                 </div>
                             </td>
@@ -220,7 +220,7 @@
                             <td class="px-6 py-4">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <img src="path/to/your/user-avatar.png" alt="Avatar" class="w-10 h-10 rounded-full object-cover">
+                                        <i class="fas fa-user-circle"></i>
                                     </div>
                                     <div>
                                         <div class="font-semibold text-gray-800">Maria Santos</div>
@@ -239,10 +239,10 @@
                             <td class="px-6 py-4">
                                 <div class="flex space-x-2">
                                     <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                                        <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                                        <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="p-2 text-gray-600 hover:text-gray-600 hover:bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg transition-colors duration-300" title="Completed">
-                                        <img src="path/to/your/complete-icon.png" alt="Complete" class="w-4 h-4">
+                                    <button class="p-2 text-gray-600 hover:text-gray-600 hover:bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg transition-colors duration-300" title="Completed">
+                                        <img src="#" alt="Complete" class="w-4 h-4">
                                     </button>
                                 </div>
                             </td>
@@ -288,7 +288,7 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">Barangay Central</h3>

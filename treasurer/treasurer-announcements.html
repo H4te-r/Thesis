@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+<body class="bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,9 +28,9 @@
                 <div class="flex items-center space-x-4">
                     <!-- LOGO AREA - Replace with actual logo -->
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                         <!-- Fallback icon if no logo -->
-                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                        
                     </div>
                     <div>
                         <h1 class="text-xl font-bold">Barangay Central</h1>
@@ -39,32 +39,32 @@
                 </div>
                 <!-- Mobile menu button -->
                 <button class="md:hidden text-white hover:text-white focus:outline-none" id="mobile-menu-button">
-                    <img src="path/to/your/menu-icon.png" alt="Menu" class="w-6 h-6">
+                    <i class="fas fa-bars"></i>
                 </button>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-6">
                     <a href="treasurer-dashboard.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
                     <a href="treasurer-certificate-payments.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/payments-icon.png" alt="Payments" class="w-5 h-5">
+                        <i class="fas fa-money-bill-wave"></i>
                         <span>Certificate Payments</span>
                     </a>
                     <a href="treasurer-financial-records.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/financial-icon.png" alt="Financial" class="w-5 h-5">
+                        <i class="fas fa-chart-line"></i>
                         <span>Financial Records</span>
                     </a>
                     <a href="treasurer-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <i class="fas fa-chart-bar"></i>
                         <span>Reports</span>
                     </a>
                     <a href="treasurer-announcements.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <i class="fas fa-bullhorn"></i>
                         <span>Announcements</span>
                     </a>
                     <a href="treasurer-settings.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/settings-icon.png" alt="Settings" class="w-5 h-5">
+                        <i class="fas fa-cog"></i>
                         <span>Settings</span>
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="text-xs opacity-80">Barangay Treasurer</div>
                     </div>
                     <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
-                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                        <i class="fas fa-sign-out-alt text-xl"></i>
                     </button>
                 </div>
             </div>
@@ -106,28 +106,28 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-8 h-8">
+                    <i class="fas fa-bullhorn"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">25</h3>
                 <p class="text-gray-600">Total Announcements</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/active-icon.png" alt="Active" class="w-8 h-8">
+                    <img src="#" alt="Active" class="w-8 h-8">
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">12</h3>
                 <p class="text-gray-600">Active</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/financial-icon.png" alt="Financial" class="w-8 h-8">
+                    <i class="fas fa-chart-line"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">8</h3>
                 <p class="text-gray-600">Financial Related</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/payment-icon.png" alt="Payment" class="w-8 h-8">
+                    <img src="#" alt="Payment" class="w-8 h-8">
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">5</h3>
                 <p class="text-gray-600">Payment Updates</p>
@@ -173,21 +173,21 @@
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                            <img src="#" alt="Calendar" class="w-4 h-4">
                             <span>Jan 20, 2024</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/eye-icon.png" alt="Views" class="w-4 h-4">
+                            <img src="#" alt="Views" class="w-4 h-4">
                             <span>156 views</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/user-icon.png" alt="Author" class="w-4 h-4">
+                            <img src="#" alt="Author" class="w-4 h-4">
                             <span>Treasurer Pedro Cruz</span>
                         </span>
                     </div>
                     <div class="flex space-x-2">
                         <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                            <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                            <i class="fas fa-eye"></i>
                         </button>
                     </div>
                 </div>
@@ -205,21 +205,21 @@
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                            <img src="#" alt="Calendar" class="w-4 h-4">
                             <span>Jan 25, 2024</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/eye-icon.png" alt="Views" class="w-4 h-4">
+                            <img src="#" alt="Views" class="w-4 h-4">
                             <span>0 views</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/user-icon.png" alt="Author" class="w-4 h-4">
+                            <img src="#" alt="Author" class="w-4 h-4">
                             <span>Treasurer Pedro Cruz</span>
                         </span>
                     </div>
                     <div class="flex space-x-2">
                         <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                            <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                            <i class="fas fa-eye"></i>
                         </button>
                     </div>
                 </div>
@@ -237,21 +237,21 @@
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                            <img src="#" alt="Calendar" class="w-4 h-4">
                             <span>Jan 15, 2024</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/eye-icon.png" alt="Views" class="w-4 h-4">
+                            <img src="#" alt="Views" class="w-4 h-4">
                             <span>89 views</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/user-icon.png" alt="Author" class="w-4 h-4">
+                            <img src="#" alt="Author" class="w-4 h-4">
                             <span>Treasurer Pedro Cruz</span>
                         </span>
                     </div>
                     <div class="flex space-x-2">
                         <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                            <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                            <i class="fas fa-eye"></i>
                         </button>
                     </div>
                 </div>
@@ -294,7 +294,7 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">Barangay Central</h3>

@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+<body class="bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,9 +28,9 @@
                 <div class="flex items-center space-x-4">
                     <!-- LOGO AREA - Replace with actual logo -->
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                         <!-- Fallback icon if no logo -->
-                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                        
                     </div>
                     <div>
                         <h1 class="text-xl font-bold">Barangay Central</h1>
@@ -39,19 +39,19 @@
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <a href="#dashboard" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
                     <a href="lupon-complaints.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/complaints-icon.png" alt="Complaints" class="w-5 h-5">
+                        <i class="fas fa-comment-dots"></i>
                         <span>Complaints & Blotter</span>
                     </a>
                     <a href="lupon-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <i class="fas fa-chart-bar"></i>
                         <span>Reports</span>
                     </a>
                     <a href="lupon-announcements.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <i class="fas fa-bullhorn"></i>
                         <span>Announcements</span>
                     </a>
                 </div>
@@ -61,7 +61,7 @@
                         <div class="text-xs opacity-80">Lupon Tagapamayapa</div>
                     </div>
                     <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
-                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                        <i class="fas fa-sign-out-alt text-xl"></i>
                     </button>
                 </div>
             </div>
@@ -82,7 +82,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <img src="path/to/your/active-cases-icon.png" alt="Active Cases" class="w-8 h-8">
+                    <img src="#" alt="Active Cases" class="w-8 h-8">
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold text-barangay-green">6</h3>
@@ -92,7 +92,7 @@
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                    <img src="path/to/your/resolved-icon.png" alt="Resolved" class="w-8 h-8">
+                    <img src="#" alt="Resolved" class="w-8 h-8">
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold text-barangay-green">12</h3>
@@ -102,7 +102,7 @@
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
-                    <img src="path/to/your/scheduled-icon.png" alt="Scheduled" class="w-8 h-8">
+                    <img src="#" alt="Scheduled" class="w-8 h-8">
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold text-barangay-green">3</h3>
@@ -112,7 +112,7 @@
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
-                    <img src="path/to/your/success-rate-icon.png" alt="Success Rate" class="w-8 h-8">
+                    <img src="#" alt="Success Rate" class="w-8 h-8">
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold text-barangay-green">85%</h3>
@@ -127,19 +127,19 @@
             <h2 class="text-2xl font-bold text-barangay-green mb-6">Quick Actions</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="lupon-complaints.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
-                    <img src="path/to/your/view-cases-icon.png" alt="View Cases" class="w-12 h-12">
+                    <img src="#" alt="View Cases" class="w-12 h-12">
                     <span class="font-medium text-gray-700">View Cases</span>
                 </a>
                 <a href="#" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
-                    <img src="path/to/your/schedule-mediation-icon.png" alt="Schedule Mediation" class="w-12 h-12">
+                    <img src="#" alt="Schedule Mediation" class="w-12 h-12">
                     <span class="font-medium text-gray-700">Schedule Mediation</span>
                 </a>
                 <a href="lupon-reports.html" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
-                    <img src="path/to/your/generate-report-icon.png" alt="Generate Report" class="w-12 h-12">
+                    <img src="#" alt="Generate Report" class="w-12 h-12">
                     <span class="font-medium text-gray-700">Generate Report</span>
                 </a>
                 <a href="#" class="bg-white border-2 border-gray-200 p-6 rounded-xl cursor-pointer transition-all duration-300 flex flex-col items-center space-y-3 hover:border-barangay-green hover:bg-barangay-green-bg hover:-translate-y-1 hover:shadow-lg">
-                    <img src="path/to/your/update-status-icon.png" alt="Update Status" class="w-12 h-12">
+                    <img src="#" alt="Update Status" class="w-12 h-12">
                     <span class="font-medium text-gray-700">Update Status</span>
                 </a>
             </div>
@@ -154,10 +154,10 @@
                     <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">6 Active</span>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="path/to/your/case-icon.png" alt="Case" class="w-6 h-6">
+                                <img src="#" alt="Case" class="w-6 h-6">
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Case #LT-2024-001</h4>
@@ -166,17 +166,17 @@
                         </div>
                         <div class="flex space-x-2">
                             <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-300" title="Resolve">
-                                <img src="path/to/your/resolve-icon.png" alt="Resolve" class="w-5 h-5">
+                                <img src="#" alt="Resolve" class="w-5 h-5">
                             </button>
                             <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
-                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                                <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="path/to/your/case-icon.png" alt="Case" class="w-6 h-6">
+                                <img src="#" alt="Case" class="w-6 h-6">
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Case #LT-2024-002</h4>
@@ -185,17 +185,17 @@
                         </div>
                         <div class="flex space-x-2">
                             <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-300" title="Resolve">
-                                <img src="path/to/your/resolve-icon.png" alt="Resolve" class="w-5 h-5">
+                                <img src="#" alt="Resolve" class="w-5 h-5">
                             </button>
                             <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
-                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                                <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="path/to/your/case-icon.png" alt="Case" class="w-6 h-6">
+                                <img src="#" alt="Case" class="w-6 h-6">
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Case #LT-2024-003</h4>
@@ -204,10 +204,10 @@
                         </div>
                         <div class="flex space-x-2">
                             <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-300" title="Resolve">
-                                <img src="path/to/your/resolve-icon.png" alt="Resolve" class="w-5 h-5">
+                                <img src="#" alt="Resolve" class="w-5 h-5">
                             </button>
                             <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-300" title="View Details">
-                                <img src="path/to/your/view-icon.png" alt="View" class="w-5 h-5">
+                                <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
@@ -224,10 +224,10 @@
                     <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">3 This Week</span>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                                <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-6 h-6">
+                                <img src="#" alt="Calendar" class="w-6 h-6">
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Case #LT-2024-001</h4>
@@ -236,14 +236,14 @@
                         </div>
                         <div class="flex space-x-2">
                             <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Start Mediation">
-                                <img src="path/to/your/start-icon.png" alt="Start" class="w-5 h-5">
+                                <img src="#" alt="Start" class="w-5 h-5">
                             </button>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                                <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-6 h-6">
+                                <img src="#" alt="Calendar" class="w-6 h-6">
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Case #LT-2024-002</h4>
@@ -252,14 +252,14 @@
                         </div>
                         <div class="flex space-x-2">
                             <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Start Mediation">
-                                <img src="path/to/your/start-icon.png" alt="Start" class="w-5 h-5">
+                                <img src="#" alt="Start" class="w-5 h-5">
                             </button>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                    <div class="flex items-center justify-between p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                                <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-6 h-6">
+                                <img src="#" alt="Calendar" class="w-6 h-6">
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Case #LT-2024-003</h4>
@@ -268,7 +268,7 @@
                         </div>
                         <div class="flex space-x-2">
                             <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="Start Mediation">
-                                <img src="path/to/your/start-icon.png" alt="Start" class="w-5 h-5">
+                                <img src="#" alt="Start" class="w-5 h-5">
                             </button>
                         </div>
                     </div>
@@ -280,9 +280,9 @@
         <div class="bg-white p-8 rounded-xl shadow-lg">
             <h2 class="text-2xl font-bold text-barangay-green mb-6">Recent Case Activities</h2>
             <div class="space-y-4">
-                <div class="flex items-center space-x-4 p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                <div class="flex items-center space-x-4 p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <img src="path/to/your/resolved-icon.png" alt="Resolved" class="w-6 h-6">
+                        <img src="#" alt="Resolved" class="w-6 h-6">
                     </div>
                     <div class="flex-1">
                         <h4 class="font-semibold text-gray-800">Case Resolved</h4>
@@ -290,9 +290,9 @@
                     </div>
                     <span class="text-xs text-gray-500">2 hours ago</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                <div class="flex items-center space-x-4 p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                     <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="path/to/your/mediation-icon.png" alt="Mediation" class="w-6 h-6">
+                        <img src="#" alt="Mediation" class="w-6 h-6">
                     </div>
                     <div class="flex-1">
                         <h4 class="font-semibold text-gray-800">Mediation Scheduled</h4>
@@ -300,9 +300,9 @@
                     </div>
                     <span class="text-xs text-gray-500">4 hours ago</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
+                <div class="flex items-center space-x-4 p-4 bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg hover:bg-barangay-green-bg transition-colors duration-300">
                     <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                        <img src="path/to/your/report-icon.png" alt="Report" class="w-6 h-6">
+                        <img src="#" alt="Report" class="w-6 h-6">
                     </div>
                     <div class="flex-1">
                         <h4 class="font-semibold text-gray-800">Report Generated</h4>
@@ -321,7 +321,7 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">Barangay Central</h3>

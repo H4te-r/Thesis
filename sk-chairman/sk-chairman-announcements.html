@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen">
+<body class="bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-barangay-green/90 to-barangay-green-light/90 backdrop-blur-md text-white shadow-lg z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,9 +28,9 @@
                 <div class="flex items-center space-x-4">
                     <!-- LOGO AREA - Replace with actual logo -->
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.jpeg" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                         <!-- Fallback icon if no logo -->
-                        <img src="path/to/your/fallback-icon.png" alt="Building Icon" class="w-8 h-8 object-contain" style="display: none;">
+                        
                     </div>
                     <div>
                         <h1 class="text-xl font-bold">Barangay Central</h1>
@@ -39,28 +39,28 @@
                 </div>
                 <!-- Mobile menu button -->
                 <button class="md:hidden text-white hover:text-white focus:outline-none" id="mobile-menu-button">
-                    <img src="path/to/your/menu-icon.png" alt="Menu" class="w-6 h-6">
+                    <i class="fas fa-bars"></i>
                 </button>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-6">
                     <a href="sk-chairman-dashboard.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/home-icon.png" alt="Home" class="w-5 h-5">
+                        <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>
                     <a href="sk-chairman-service-requests.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/services-icon.png" alt="Services" class="w-5 h-5">
+                        <i class="fas fa-tools"></i>
                         <span>Service Requests</span>
                     </a>
                     <a href="sk-chairman-announcements.html" class="nav-link active flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-5 h-5">
+                        <i class="fas fa-bullhorn"></i>
                         <span>Announcements</span>
                     </a>
                     <a href="sk-chairman-reports.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/reports-icon.png" alt="Reports" class="w-5 h-5">
+                        <i class="fas fa-chart-bar"></i>
                         <span>Reports</span>
                     </a>
                     <a href="sk-chairman-settings.html" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20">
-                        <img src="path/to/your/settings-icon.png" alt="Settings" class="w-5 h-5">
+                        <i class="fas fa-cog"></i>
                         <span>Settings</span>
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                         <div class="text-xs opacity-80">Sangguniang Kabataan</div>
                     </div>
                     <button class="p-2 rounded-lg transition-colors duration-300 hover:bg-white/20">
-                        <img src="path/to/your/logout-icon.png" alt="Logout" class="w-6 h-6">
+                        <i class="fas fa-sign-out-alt text-xl"></i>
                     </button>
                 </div>
             </div>
@@ -97,11 +97,11 @@
             </div>
             <div class="flex space-x-4">
                 <button class="bg-barangay-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-barangay-green-light transition-colors duration-300 flex items-center space-x-2">
-                    <img src="path/to/your/add-icon.png" alt="Add" class="w-5 h-5">
+                    <i class="fas fa-plus"></i>
                     <span>New Announcement</span>
                 </button>
                 <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center space-x-2">
-                    <img src="path/to/your/export-icon.png" alt="Export" class="w-5 h-5">
+                    <i class="fas fa-download"></i>
                     <span>Export</span>
                 </button>
             </div>
@@ -111,28 +111,28 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/announcements-icon.png" alt="Announcements" class="w-8 h-8">
+                    <i class="fas fa-bullhorn"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">18</h3>
                 <p class="text-gray-600">Total Announcements</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/active-icon.png" alt="Active" class="w-8 h-8">
+                    <img src="#" alt="Active" class="w-8 h-8">
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">8</h3>
                 <p class="text-gray-600">Active</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/scheduled-icon.png" alt="Scheduled" class="w-8 h-8">
+                    <img src="#" alt="Scheduled" class="w-8 h-8">
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">3</h3>
                 <p class="text-gray-600">Scheduled</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <img src="path/to/your/expired-icon.png" alt="Expired" class="w-8 h-8">
+                    <img src="#" alt="Expired" class="w-8 h-8">
                 </div>
                 <h3 class="text-2xl font-bold text-barangay-green">7</h3>
                 <p class="text-gray-600">Expired</p>
@@ -179,30 +179,30 @@
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                            <img src="#" alt="Calendar" class="w-4 h-4">
                             <span>Jan 25, 2024</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/eye-icon.png" alt="Views" class="w-4 h-4">
+                            <img src="#" alt="Views" class="w-4 h-4">
                             <span>245 views</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/user-icon.png" alt="Author" class="w-4 h-4">
+                            <img src="#" alt="Author" class="w-4 h-4">
                             <span>SK Chairman Maria Santos</span>
                         </span>
                     </div>
                     <div class="flex space-x-2">
                         <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                            <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                            <i class="fas fa-eye"></i>
                         </button>
                         <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="Edit">
-                            <img src="path/to/your/edit-icon.png" alt="Edit" class="w-4 h-4">
+                            <i class="fas fa-edit"></i>
                         </button>
                         <button class="p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-300" title="Duplicate">
-                            <img src="path/to/your/duplicate-icon.png" alt="Duplicate" class="w-4 h-4">
+                            <img src="#" alt="Duplicate" class="w-4 h-4">
                         </button>
                         <button class="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Delete">
-                            <img src="path/to/your/delete-icon.png" alt="Delete" class="w-4 h-4">
+                            <img src="#" alt="Delete" class="w-4 h-4">
                         </button>
                     </div>
                 </div>
@@ -220,30 +220,30 @@
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                            <img src="#" alt="Calendar" class="w-4 h-4">
                             <span>Jan 28, 2024</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/eye-icon.png" alt="Views" class="w-4 h-4">
+                            <img src="#" alt="Views" class="w-4 h-4">
                             <span>0 views</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/user-icon.png" alt="Author" class="w-4 h-4">
+                            <img src="#" alt="Author" class="w-4 h-4">
                             <span>SK Chairman Maria Santos</span>
                         </span>
                     </div>
                     <div class="flex space-x-2">
                         <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                            <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                            <i class="fas fa-eye"></i>
                         </button>
                         <button class="p-2 text-gray-600 hover:text-barangay-green hover:bg-barangay-green-bg rounded-lg transition-colors duration-300" title="Edit">
-                            <img src="path/to/your/edit-icon.png" alt="Edit" class="w-4 h-4">
+                            <i class="fas fa-edit"></i>
                         </button>
                         <button class="p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-300" title="Publish">
-                            <img src="path/to/your/publish-icon.png" alt="Publish" class="w-4 h-4">
+                            <img src="#" alt="Publish" class="w-4 h-4">
                         </button>
                         <button class="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300" title="Delete">
-                            <img src="path/to/your/delete-icon.png" alt="Delete" class="w-4 h-4">
+                            <img src="#" alt="Delete" class="w-4 h-4">
                         </button>
                     </div>
                 </div>
@@ -261,24 +261,24 @@
                     </div>
                     <div class="flex items-center space-x-6 text-sm text-gray-600 mb-4">
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/calendar-icon.png" alt="Calendar" class="w-4 h-4">
+                            <img src="#" alt="Calendar" class="w-4 h-4">
                             <span>Jan 15, 2024</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/eye-icon.png" alt="Views" class="w-4 h-4">
+                            <img src="#" alt="Views" class="w-4 h-4">
                             <span>156 views</span>
                         </span>
                         <span class="flex items-center space-x-1">
-                            <img src="path/to/your/user-icon.png" alt="Author" class="w-4 h-4">
+                            <img src="#" alt="Author" class="w-4 h-4">
                             <span>SK Chairman Maria Santos</span>
                         </span>
                     </div>
                     <div class="flex space-x-2">
                         <button class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300" title="View Details">
-                            <img src="path/to/your/view-icon.png" alt="View" class="w-4 h-4">
+                            <i class="fas fa-eye"></i>
                         </button>
-                        <button class="p-2 text-gray-600 hover:text-gray-600 hover:bg-[url('../../assets/eBarBackround.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg transition-colors duration-300" title="Archived">
-                            <img src="path/to/your/archive-icon.png" alt="Archive" class="w-4 h-4">
+                        <button class="p-2 text-gray-600 hover:text-gray-600 hover:bg-[url('../../assets/e-bar-background.png')] bg-cover bg-fixed bg-center min-h-screen rounded-lg transition-colors duration-300" title="Archived">
+                            <img src="#" alt="Archive" class="w-4 h-4">
                         </button>
                     </div>
                 </div>
@@ -321,7 +321,7 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <img src="../../assets/eBarBackround.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
+                        <img src="../../assets/logo.png" alt="Barangay Logo" class="w-10 h-10 rounded-full object-contain">
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">Barangay Central</h3>
